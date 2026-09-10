@@ -92,8 +92,8 @@ a{color:inherit;text-decoration:none}
 .rb-more{padding:.6rem 1.5rem;text-align:center;font-size:.75rem;color:var(--text3);border-top:1px solid var(--border)}
 
 /* ── LIVE TICKER ── */
-.live-bar{max-width:var(--max-w);margin:0 auto;padding:1.5rem;display:flex;align-items:center;justify-content:center;gap:.6rem;font-size:.82rem;color:var(--text2);display:none}
-.live-bar.on{display:flex}
+.live-bar{max-width:var(--max-w);margin:0 auto;padding:1.5rem;display:flex;align-items:center;justify-content:center;gap:.6rem;font-size:.82rem;color:var(--text2);visibility:hidden}
+.live-bar.on{visibility:visible}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .live-bar strong{color:#fff}
@@ -512,7 +512,7 @@ async function doSearch(e){
         ${hiddenRows}
       </ul>`;
     box.classList.add('on');
-    box.scrollIntoView({behavior:'smooth',block:'start'});
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
   }catch(err){
     box.innerHTML='<div class="rb-error">Error de conexión</div>';box.classList.add('on');
   }finally{btn.disabled=false;btn.textContent='Buscar';sp.classList.remove('on')}
