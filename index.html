@@ -495,9 +495,11 @@ async function doSearch(e){
         <span class="rb-badge ${r.c}">${r.l}</span>
       </div>
       ${leakAgo?`<div class="rb-leak-ago"><span class="live-dot"></span>Última filtración detectada ${leakAgo}</div>`:''}
-      <div class="rb-stats rb-stats-2">
+      <div class="rb-stats">
         <div class="rb-stat"><div class="rb-stat-n">${d.total}</div><div class="rb-stat-l">Registros</div></div>
         <div class="rb-stat"><div class="rb-stat-n">${d.domains}</div><div class="rb-stat-l">${isDomain?'Fuentes':'Dominios'}</div></div>
+        <div class="rb-stat"><div class="rb-stat-n">${d.first_seen||'-'}</div><div class="rb-stat-l">Desde</div></div>
+        <div class="rb-stat"><div class="rb-stat-n">${d.last_seen||'-'}</div><div class="rb-stat-l">Hasta</div></div>
       </div>
       <ul class="rb-list">
         <li class="rb-row">
