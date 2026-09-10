@@ -462,8 +462,7 @@ async function doSearch(e){
   const btn=document.getElementById('searchBtn'),sp=document.getElementById('spinner'),box=document.getElementById('resultBox');
   btn.disabled=true;btn.textContent='Buscando...';sp.classList.add('on');box.classList.remove('on');
   try{
-    const fd=new FormData();fd.append('q',q);
-    const res=await fetch(API_BASE+'/api/breach/check',{method:'POST',body:fd});
+    const res=await fetch(API_BASE+'/api/breach/check',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:q})});
     const d=await res.json();
     if(!res.ok){box.innerHTML=`<div class="rb-error">${d.error||'Error'}</div>`;box.classList.add('on');return}
     if(!d.found){
