@@ -56,33 +56,33 @@ a{color:inherit;text-decoration:none}
 .counter-label{font-size:.75rem;color:var(--text3);margin-top:.15rem;text-transform:uppercase;letter-spacing:.06em}
 
 /* ── RESULTS ── */
-.results-wrap{max-width:600px;margin:0 auto;padding:0 1.5rem 3rem}
+.results-wrap{max-width:640px;margin:0 auto;padding:2rem 1.5rem 3.5rem}
 .spinner{display:none;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .5s linear infinite;margin:1.5rem auto 0}
 .spinner.on{display:block}
 @keyframes spin{to{transform:rotate(360deg)}}
-.result-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-top:1.5rem;display:none;overflow:hidden}
+.result-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-top:1.5rem;display:none;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.4),0 0 0 1px rgba(59,130,246,.08)}
 .result-box.on{display:block}
-.rb-header{padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.rb-header h3{font-size:.95rem;font-weight:600;color:#fff}
-.rb-badge{font-size:.72rem;font-weight:600;padding:.25rem .65rem;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
+.rb-header{padding:1.4rem 1.8rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.rb-header h3{font-size:1.05rem;font-weight:700;color:#fff}
+.rb-badge{font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px;text-transform:uppercase;letter-spacing:.04em}
 .rb-badge.critical{background:rgba(220,38,38,.15);color:var(--red)}
 .rb-badge.high{background:rgba(234,88,12,.15);color:var(--orange)}
 .rb-badge.medium{background:rgba(202,138,4,.15);color:var(--yellow)}
 .rb-badge.low{background:rgba(22,163,74,.12);color:var(--green)}
 .rb-badge.none{background:rgba(115,115,115,.12);color:var(--text2)}
 .rb-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
-.rb-stat{padding:.9rem 1rem;text-align:center;border-right:1px solid var(--border)}
+.rb-stat{padding:1.1rem 1rem;text-align:center;border-right:1px solid var(--border)}
 .rb-stat:last-child{border-right:none}
-.rb-stat-n{font-size:1.1rem;font-weight:700;color:#fff}
-.rb-stat-l{font-size:.68rem;color:var(--text3);margin-top:.1rem;text-transform:uppercase;letter-spacing:.04em}
+.rb-stat-n{font-size:1.25rem;font-weight:700;color:#fff}
+.rb-stat-l{font-size:.7rem;color:var(--text3);margin-top:.2rem;text-transform:uppercase;letter-spacing:.04em}
 .rb-list{list-style:none;max-height:360px;overflow-y:auto}
-.rb-row{display:flex;align-items:center;justify-content:space-between;padding:.65rem 1.5rem;border-bottom:1px solid var(--border);font-size:.87rem}
+.rb-row{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.8rem;border-bottom:1px solid var(--border);font-size:.9rem}
 .rb-row:last-child{border-bottom:none}
 .rb-row-domain{font-weight:500;color:#fff}
 .rb-row-right{display:flex;align-items:center;gap:.8rem;color:var(--text2);font-size:.78rem}
 .rb-row-count{font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
 .rb-blurred{filter:blur(4px);opacity:.4;pointer-events:none;user-select:none}
-.rb-locked{display:flex;align-items:center;gap:.6rem;justify-content:center;padding:1rem 1.5rem;color:var(--text2);font-size:.82rem;background:var(--surface2)}
+.rb-locked{display:flex;align-items:center;gap:.6rem;justify-content:center;padding:1.2rem 1.8rem;color:var(--text2);font-size:.85rem;background:var(--surface2);border-top:1px solid var(--border)}
 .rb-locked svg{opacity:.5;flex-shrink:0}
 .rb-locked a{color:var(--accent);font-weight:600;margin-left:.2rem}
 .rb-locked a:hover{text-decoration:underline}
@@ -249,6 +249,11 @@ footer{padding:2rem 1.5rem;text-align:center;font-size:.75rem;color:var(--text3)
   Última filtración detectada <strong id="lastAgo"></strong>
 </div>
 
+<div class="results-wrap">
+  <div class="spinner" id="spinner"></div>
+  <div class="result-box" id="resultBox"></div>
+</div>
+
 <div class="diff-strip">
   <div class="diff-item">
     <h4>Data en tiempo real</h4>
@@ -262,11 +267,6 @@ footer{padding:2rem 1.5rem;text-align:center;font-size:.75rem;color:var(--text3)
     <h4>Búsqueda por RUT</h4>
     <p>La única plataforma que permite buscar exposición de credenciales usando RUT chileno como identificador.</p>
   </div>
-</div>
-
-<div class="results-wrap">
-  <div class="spinner" id="spinner"></div>
-  <div class="result-box" id="resultBox"></div>
 </div>
 
 <hr class="divider">
