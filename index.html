@@ -430,7 +430,7 @@ footer{padding:2rem 1.5rem;text-align:center;font-size:.75rem;color:var(--text3)
 // ── CONFIG ──
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://127.0.0.1:8001'
-  : '';  // Same-origin when behind Cloudflare Tunnel
+  : 'https://printed-cloud-modems-investing.trycloudflare.com';
 
 // ── LOAD STATS ──
 (async function loadStats(){
