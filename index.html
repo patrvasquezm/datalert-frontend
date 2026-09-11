@@ -3,195 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Datalert — Inteligencia de Brechas de Datos en Chile</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Datalert — Brechas de datos en Chile</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#09090b;
-  --card:#111113;
-  --border:#1e1e22;
-  --text:#d4d4d8;
-  --text2:#71717a;
-  --text3:#52525b;
-  --white:#fafafa;
-  --accent:#3b82f6;--accent-hover:#2563eb;
-  --red:#ef4444;--orange:#f97316;--yellow:#eab308;--green:#22c55e;
-  --font:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --max-w:1100px;
-  --section-gap:6rem;
+  --bg:#f4f0e8;
+  --white:#fffefb;
+  --border:#ddd8cf;
+  --border-2:#c9c3b8;
+  --text:#17150f;
+  --text-2:#6b6257;
+  --text-3:#a09890;
+  --red:#b71c1c;
+  --red-soft:rgba(183,28,28,.07);
+  --red-border:rgba(183,28,28,.2);
+  --orange:#c45000;
+  --yellow:#8a6800;
+  --green:#1a5c35;
+  --data-bg:#111009;
+  --data-border:#252218;
+  --data-text:#c4bdb0;
+  --data-dim:#5c5648;
+  --data-green:#4ade80;
+  --data-red:#f87171;
+  --data-orange:#fb923c;
+  --data-yellow:#fbbf24;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',Times,serif;
+  --mono:'SF Mono','Monaco','Cascadia Mono','Consolas',monospace;
+  --max-w:1040px;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 
 /* ── NAV ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 2rem}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);height:50px;display:flex;align-items:center;padding:0 2rem}
 .nav-inner{max-width:var(--max-w);width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.nav-brand{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;color:var(--white);display:flex;align-items:center;gap:.5rem}
-.nav-brand svg{width:20px;height:20px;fill:var(--accent)}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--text2);font-size:.85rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--accent);color:#fff;padding:.45rem 1.1rem;border-radius:6px;font-size:.82rem;font-weight:600;transition:background .15s}
-.nav-cta:hover{background:var(--accent-hover)}
+.nav-brand{font-family:var(--serif);font-size:1.05rem;color:var(--text);letter-spacing:-.01em}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{font-size:.78rem;color:var(--text-2);transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-email{color:var(--red) !important}
 
 /* ── HERO ── */
-.hero{padding:7.5rem 2rem 4rem;text-align:center;max-width:740px;margin:0 auto}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:1.5rem;background:rgba(59,130,246,.08);padding:.4rem 1rem;border-radius:20px;border:1px solid rgba(59,130,246,.15)}
-.hero h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-.03em;color:var(--white);margin-bottom:1.2rem}
-.hero-sub{font-size:1rem;color:var(--text2);max-width:520px;margin:0 auto 2.5rem;line-height:1.7}
+.hero{padding:6.5rem 2rem 3.5rem;max-width:var(--max-w);margin:0 auto}
+.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,4.2vw,3rem);font-weight:normal;line-height:1.12;color:var(--text);margin-bottom:.9rem;max-width:680px}
+.hero-lead{font-size:.9rem;color:var(--text-2);line-height:1.75;max-width:480px;margin-bottom:2rem}
+.hero-lead strong{color:var(--text);font-weight:600}
 
 /* ── SEARCH ── */
-.search-wrap{max-width:500px;margin:0 auto}
-.search-row{display:flex;gap:8px}
-.search-row input{flex:1;padding:.8rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:.9rem;font-family:var(--font);outline:none;transition:border-color .2s}
-.search-row input:focus{border-color:var(--accent)}
-.search-row input::placeholder{color:var(--text3)}
-.search-row button{padding:.8rem 1.5rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:.87rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:background .15s;white-space:nowrap}
-.search-row button:hover{background:var(--accent-hover)}
-.search-row button:disabled{opacity:.4;cursor:default}
-.search-note{margin-top:.6rem;font-size:.74rem;color:var(--text3)}
+.search-form{display:flex;gap:6px;max-width:520px;margin-bottom:.5rem}
+.search-form input{flex:1;padding:.65rem .9rem;background:var(--white);border:1px solid var(--border-2);border-radius:4px;color:var(--text);font-size:.87rem;font-family:var(--sans);outline:none;transition:border-color .15s}
+.search-form input:focus{border-color:var(--text-3)}
+.search-form input::placeholder{color:var(--text-3)}
+.search-form button{padding:.65rem 1.2rem;background:var(--text);color:var(--bg);border:none;border-radius:4px;font-size:.82rem;font-weight:600;font-family:var(--sans);cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.search-form button:hover{opacity:.78}
+.search-form button:disabled{opacity:.28;cursor:default}
+.search-note{font-size:.7rem;color:var(--text-3);margin-bottom:1.5rem}
 
-/* ── STATS BAR ── */
-.stats-bar{max-width:580px;margin:2.5rem auto 0;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
-.stat-item{text-align:center}
-.stat-num{font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
-.stat-label{font-size:.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
-.stat-live{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;color:var(--text2);visibility:hidden}
-.stat-live.on{visibility:visible}
-.stat-live strong{color:var(--white)}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+/* ── STATS ── */
+.stats{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;font-size:.77rem;color:var(--text-2)}
+.stats strong{color:var(--text);font-variant-numeric:tabular-nums}
+.stats-sep{color:var(--border-2);user-select:none}
+.stat-live{display:none;align-items:center;gap:.3rem}
+.stat-live.on{display:flex}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2.5s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.1}}
 
 /* ── RESULTS ── */
-.results-wrap{max-width:780px;margin:0 auto;padding:1.5rem 2rem 0}
-.spinner{display:none;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .5s linear infinite;margin:2rem auto}
+.results-wrap{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+.spinner{display:none;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--text-2);border-radius:50%;animation:spin .5s linear infinite;margin:2rem 0}
 .spinner.on{display:block}
 @keyframes spin{to{transform:rotate(360deg)}}
-.result-box{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-top:1rem;display:none;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+
+/* result box — dark terminal panel */
+.result-box{background:var(--data-bg);border:1px solid var(--data-border);border-radius:5px;margin-top:.8rem;display:none;overflow:hidden;color:var(--data-text);font-size:.84rem}
 .result-box.on{display:block}
-.rb-header{padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.rb-header h3{font-size:1rem;font-weight:700;color:var(--white)}
-.rb-badge{font-size:.72rem;font-weight:600;padding:.3rem .7rem;border-radius:5px;text-transform:uppercase;letter-spacing:.03em}
-.rb-badge.critical{background:rgba(239,68,68,.12);color:var(--red)}
-.rb-badge.high{background:rgba(249,115,22,.12);color:var(--orange)}
-.rb-badge.medium{background:rgba(234,179,8,.12);color:var(--yellow)}
-.rb-badge.low{background:rgba(34,197,94,.1);color:var(--green)}
-.rb-badge.none{background:rgba(113,113,122,.1);color:var(--text2)}
-.rb-leak-ago{padding:.6rem 1.5rem;background:rgba(34,197,94,.05);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--green)}
-.rb-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
-.rb-stat{padding:1rem .8rem;text-align:center;border-right:1px solid var(--border)}
+.rb-header{padding:.85rem 1.1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--data-border)}
+.rb-header h3{font-size:.85rem;font-weight:500;color:#e0d8cc;font-family:var(--mono);letter-spacing:.01em}
+.rb-badge{font-size:.62rem;font-weight:700;padding:.18rem .5rem;border-radius:3px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--sans)}
+.rb-badge.critical{background:rgba(248,113,113,.12);color:var(--data-red)}
+.rb-badge.high{background:rgba(251,146,60,.12);color:var(--data-orange)}
+.rb-badge.medium{background:rgba(251,191,36,.12);color:var(--data-yellow)}
+.rb-badge.low{background:rgba(74,222,128,.08);color:var(--data-green)}
+.rb-badge.none{background:rgba(255,255,255,.04);color:var(--data-dim)}
+.rb-leak-ago{padding:.4rem 1.1rem;border-bottom:1px solid var(--data-border);display:flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--data-green);font-family:var(--mono)}
+.rb-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--data-border)}
+.rb-stat{padding:.65rem .5rem;text-align:center;border-right:1px solid var(--data-border)}
 .rb-stat:last-child{border-right:none}
-.rb-stat-n{font-size:1rem;font-weight:700;color:var(--white);white-space:nowrap}
-.rb-stat-l{font-size:.65rem;color:var(--text3);margin-top:.15rem;text-transform:uppercase;letter-spacing:.04em}
+.rb-stat-n{font-size:.88rem;font-weight:600;color:#e0d8cc;white-space:nowrap;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.rb-stat-l{font-size:.58rem;color:var(--data-dim);margin-top:.1rem;text-transform:uppercase;letter-spacing:.06em}
 .rb-list{list-style:none}
-.rb-row{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.5rem;border-bottom:1px solid var(--border);font-size:.88rem}
+.rb-row{display:flex;align-items:center;justify-content:space-between;padding:.55rem 1.1rem;border-bottom:1px solid var(--data-border);font-size:.8rem}
 .rb-row:last-child{border-bottom:none}
-.rb-row-domain{font-weight:500;color:var(--white)}
-.rb-row-right{display:flex;align-items:center;gap:.8rem;color:var(--text2);font-size:.78rem}
-.rb-row-count{font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-.rb-blurred{filter:blur(4px);opacity:.35;pointer-events:none;user-select:none}
-.rb-locked{display:flex;align-items:center;gap:.5rem;justify-content:center;padding:1rem 1.5rem;color:var(--text2);font-size:.82rem;background:rgba(255,255,255,.02);border-top:1px solid var(--border)}
-.rb-locked svg{opacity:.4;flex-shrink:0}
-.rb-locked a{color:var(--accent);font-weight:600;margin-left:.15rem}
+.rb-row-domain{font-weight:500;color:#e0d8cc;font-family:var(--mono)}
+.rb-row-right{display:flex;align-items:center;gap:.65rem;color:var(--data-dim);font-size:.72rem}
+.rb-row-count{font-weight:600;color:#e0d8cc;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.rb-blurred{filter:blur(4px);opacity:.2;pointer-events:none;user-select:none}
+.rb-locked{display:flex;align-items:center;gap:.4rem;justify-content:center;padding:.65rem 1.1rem;color:var(--data-dim);font-size:.73rem;border-top:1px solid var(--data-border)}
+.rb-locked svg{opacity:.3;flex-shrink:0}
+.rb-locked a{color:var(--data-green);font-weight:500;margin-left:.1rem}
 .rb-locked a:hover{text-decoration:underline}
-.rb-empty{padding:2rem;text-align:center;color:var(--green);font-weight:500;font-size:.92rem}
-.rb-error{padding:1.5rem;text-align:center;color:var(--red);font-size:.88rem}
-.rb-persona{padding:.8rem 1.5rem;background:rgba(59,130,246,.04);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.8rem}
-.rb-persona-icon{width:32px;height:32px;min-width:32px;border-radius:50%;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center}
-.rb-persona-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.5}
+.rb-empty{padding:1.5rem;text-align:center;color:var(--data-green);font-size:.83rem;font-family:var(--mono)}
+.rb-error{padding:1.2rem;text-align:center;color:var(--data-red);font-size:.78rem;font-family:var(--mono)}
+.rb-persona{padding:.55rem 1.1rem;border-bottom:1px solid var(--data-border);display:flex;align-items:center;gap:.65rem}
+.rb-persona-icon{width:26px;height:26px;min-width:26px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--data-border);display:flex;align-items:center;justify-content:center}
+.rb-persona-icon svg{width:13px;height:13px;stroke:var(--data-dim);fill:none;stroke-width:1.5}
 .rb-persona-info{flex:1;min-width:0}
-.rb-persona-name{font-size:.88rem;font-weight:600;color:var(--white)}
-.rb-persona-addr{font-size:.78rem;color:var(--text2);margin-top:.15rem;filter:blur(4px);user-select:none}
-.rb-persona-rut{font-size:.75rem;color:var(--accent);font-weight:500;font-variant-numeric:tabular-nums}
+.rb-persona-name{font-size:.8rem;font-weight:500;color:#e0d8cc;font-family:var(--mono)}
+.rb-persona-addr{font-size:.7rem;color:var(--data-dim);margin-top:.1rem;filter:blur(4px);user-select:none}
+.rb-persona-rut{font-size:.7rem;color:var(--data-green);font-weight:500;font-family:var(--mono);font-variant-numeric:tabular-nums}
 
-/* ── FEATURES ── */
-.features{max-width:var(--max-w);margin:0 auto;padding:var(--section-gap) 2rem}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.feature{padding:1.8rem;border:1px solid var(--border);border-radius:10px;transition:border-color .2s}
-.feature:hover{border-color:rgba(59,130,246,.3)}
-.feature h4{font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:.5rem}
-.feature p{font-size:.82rem;color:var(--text2);line-height:1.6}
-@media(max-width:640px){.features-grid{grid-template-columns:1fr}}
-
-/* ── SECTION COMMON ── */
-.section{max-width:var(--max-w);margin:0 auto;padding:var(--section-gap) 2rem}
-.section-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.8rem}
-.section-title{font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.3;letter-spacing:-.02em;margin-bottom:1rem}
-.section-sub{color:var(--text2);font-size:.92rem;line-height:1.7;margin-bottom:1.5rem}
-.section-sep{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border)}
+/* ── DIVIDER ── */
+hr{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border)}
 
 /* ── ABOUT ── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.about-points{list-style:none;display:flex;flex-direction:column;gap:1.5rem}
-.about-point{display:flex;gap:.8rem;align-items:flex-start}
-.about-point-num{width:32px;height:32px;min-width:32px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--accent)}
-.about-point h4{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.2rem}
-.about-point p{font-size:.82rem;color:var(--text2);margin:0}
+.about{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about h2{font-family:var(--serif);font-size:1.45rem;font-weight:normal;color:var(--text);margin-bottom:1rem;line-height:1.25}
+.about-copy p{font-size:.87rem;color:var(--text-2);line-height:1.78;margin-bottom:.75rem}
+.about-copy strong{color:var(--text);font-weight:600}
+.compliance{margin-top:1.5rem;padding:.85rem 1rem;border-left:2px solid var(--red);background:var(--red-soft);border-radius:0 3px 3px 0}
+.compliance p{font-size:.78rem;color:var(--text-2);line-height:1.65;margin:0}
+.compliance strong{color:var(--text)}
 
-/* ── COMPLIANCE ── */
-.compliance-box{border:1px solid var(--border);border-radius:10px;padding:2.2rem;display:flex;gap:2rem;align-items:start}
-.compliance-badge{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);border-radius:8px;padding:.8rem 1rem;text-align:center;min-width:90px;flex-shrink:0}
-.compliance-badge .cb-num{font-size:1.2rem;font-weight:700;color:var(--red);line-height:1}
-.compliance-badge .cb-label{font-size:.65rem;color:var(--red);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem}
-.compliance-text h3{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.4rem}
-.compliance-text p{font-size:.85rem;color:var(--text2);line-height:1.65;margin-bottom:.5rem}
-.compliance-text strong{color:var(--white)}
+/* steps */
+.steps{list-style:none;border-top:1px solid var(--border)}
+.step{padding:.95rem 0;border-bottom:1px solid var(--border)}
+.step-n{font-size:.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.15rem}
+.step h4{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.step p{font-size:.78rem;color:var(--text-2);line-height:1.6;margin:0}
 
 /* ── PRICING ── */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.price-card{border:1px solid var(--border);border-radius:10px;padding:2rem;transition:border-color .2s}
-.price-card:hover{border-color:rgba(59,130,246,.3)}
-.price-name{font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.price-desc{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:1.2rem}
-.price-features{list-style:none;font-size:.8rem;color:var(--text2);margin-bottom:1.5rem}
-.price-features li{padding:.3rem 0;padding-left:1.2rem;position:relative}
-.price-features li::before{content:'';position:absolute;left:0;top:.6rem;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.4}
-.price-amount{border-top:1px solid var(--border);padding-top:1rem}
-.price-amount strong{font-size:1.15rem;color:var(--white)}
-.price-amount span{font-size:.78rem;color:var(--text3)}
+.plans{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem}
+.plans h2{font-family:var(--serif);font-size:1.45rem;font-weight:normal;color:var(--text);margin-bottom:2rem}
+.plan-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.plan-table thead tr{border-bottom:2px solid var(--text)}
+.plan-table th{text-align:left;padding:.6rem 0;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);padding-right:2rem}
+.plan-table th:last-child{padding-right:0;text-align:right}
+.plan-table td{padding:.85rem 0;padding-right:2rem;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.45}
+.plan-table td:last-child{padding-right:0;text-align:right}
+.plan-table .plan-name{font-weight:600;color:var(--text)}
+.plan-table .plan-price{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:.88rem}
+.plan-table .plan-contact{color:var(--red);font-weight:600}
+.plan-table ul{list-style:none;margin-top:.2rem}
+.plan-table ul li{font-size:.77rem;color:var(--text-2);line-height:1.7}
+.plan-table ul li::before{content:'— ';color:var(--text-3)}
 
-/* ── OTHER SERVICES ── */
-.osvc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.osvc{border:1px solid var(--border);border-radius:10px;padding:1.8rem;transition:border-color .2s}
-.osvc:hover{border-color:rgba(59,130,246,.3)}
-.osvc-icon{font-size:1.3rem;margin-bottom:.8rem}
-.osvc h3{font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.osvc p{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:.8rem}
-.osvc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
-.osvc-tag{font-size:.68rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:4px;color:var(--text3)}
-.osvc-cta{margin-top:1rem;font-size:.8rem;color:var(--accent);font-weight:600}
+/* ── SERVICES ── */
+.others{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem}
+.others h2{font-family:var(--serif);font-size:1.45rem;font-weight:normal;color:var(--text);margin-bottom:2rem}
+.svc-list{list-style:none;border-top:1px solid var(--border)}
+.svc-item{display:grid;grid-template-columns:200px 1fr 180px;gap:2rem;padding:1.1rem 0;border-bottom:1px solid var(--border);align-items:start}
+.svc-name{font-size:.87rem;font-weight:600;color:var(--text)}
+.svc-desc{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:flex-end}
+.svc-tag{font-size:.63rem;padding:.13rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--text-3)}
 
 /* ── CTA ── */
-.cta{max-width:var(--max-w);margin:0 auto;padding:var(--section-gap) 2rem;text-align:center}
-.cta-box{border:1px solid var(--border);border-radius:12px;padding:3.5rem 2rem}
-.cta-box h2{font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:.5rem;letter-spacing:-.02em}
-.cta-box p{color:var(--text2);font-size:.9rem;max-width:400px;margin:0 auto 1.5rem}
-.cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-.btn-fill{background:var(--accent);color:#fff;padding:.7rem 1.6rem;border-radius:8px;font-size:.87rem;font-weight:600;border:none;cursor:pointer;font-family:var(--font);transition:background .15s;display:inline-block}
-.btn-fill:hover{background:var(--accent-hover)}
-.btn-ghost{background:transparent;color:var(--text);padding:.7rem 1.6rem;border-radius:8px;font-size:.87rem;font-weight:500;border:1px solid var(--border);cursor:pointer;font-family:var(--font);transition:border-color .15s;display:inline-block}
-.btn-ghost:hover{border-color:var(--text3)}
+.cta{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem 6rem}
+.cta-inner{border-top:2px solid var(--text);padding-top:2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-copy h2{font-family:var(--serif);font-size:1.3rem;font-weight:normal;color:var(--text);margin-bottom:.3rem}
+.cta-copy p{font-size:.82rem;color:var(--text-2)}
+.cta-btns{display:flex;gap:.5rem;flex-wrap:wrap;flex-shrink:0;margin-top:.2rem}
+.btn-pri{background:var(--text);color:var(--bg);padding:.6rem 1.3rem;border-radius:4px;font-size:.82rem;font-weight:600;transition:opacity .15s;display:inline-block}
+.btn-pri:hover{opacity:.78}
+.btn-sec{color:var(--text-2);padding:.6rem 1.3rem;border-radius:4px;font-size:.82rem;border:1px solid var(--border);transition:border-color .15s;display:inline-block}
+.btn-sec:hover{border-color:var(--border-2);color:var(--text)}
 
 /* ── FOOTER ── */
-footer{padding:2rem;text-align:center;font-size:.73rem;color:var(--text3);border-top:1px solid var(--border)}
+footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.7rem;color:var(--text-3)}
 
 /* ── MOBILE ── */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .pricing-grid,.osvc-grid{grid-template-columns:1fr}
+@media(max-width:820px){
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .svc-item{grid-template-columns:1fr 1fr;gap:1rem}
+  .svc-tags{justify-content:flex-start}
+  .plan-table th:nth-child(2),.plan-table td:nth-child(2){display:none}
+}
+@media(max-width:600px){
+  .nav-links .hide-sm{display:none}
   .rb-stats{grid-template-columns:repeat(2,1fr)}
   .rb-stat:nth-child(2){border-right:none}
-  .rb-stat:nth-child(1),.rb-stat:nth-child(2){border-bottom:1px solid var(--border)}
-  .stats-bar{gap:1.5rem}
-  .compliance-box{flex-direction:column}
+  .rb-stat:nth-child(1),.rb-stat:nth-child(2){border-bottom:1px solid var(--data-border)}
+  .svc-item{grid-template-columns:1fr}
+  .cta-inner{flex-direction:column}
+  footer{flex-direction:column;text-align:center}
 }
-@media(max-width:480px){
-  .search-row{flex-direction:column}
-  .search-row button{width:100%}
+@media(max-width:440px){
+  .search-form{flex-direction:column}
+  .search-form button{width:100%}
 }
 </style>
 </head>
@@ -200,51 +202,36 @@ footer{padding:2rem;text-align:center;font-size:.73rem;color:var(--text3);border
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-brand">
-      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.83-3.23 9.36-7 10.58-3.77-1.22-7-5.75-7-10.58V6.3l7-3.12z"/></svg>
-      Datalert
-    </a>
+    <a href="/" class="nav-brand">Datalert</a>
     <ul class="nav-links">
-      <li><a href="#search">Verificar</a></li>
-      <li><a href="#about">Nosotros</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      <li class="hide-sm"><a href="#search">Buscar</a></li>
+      <li class="hide-sm"><a href="#about">Producto</a></li>
+      <li class="hide-sm"><a href="#plans">Planes</a></li>
+      <li><a href="mailto:contacto@datalert.cl" class="nav-email">contacto@datalert.cl</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Solicitar demo</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="search">
-  <div class="hero-eyebrow">Inteligencia de Brechas en Chile</div>
-  <h1>Verifica si tu empresa ha sido comprometida</h1>
-  <p class="hero-sub">La Ley 21.719 obliga a detectar y notificar brechas de datos en el menor tiempo posible. Monitoreamos filtraciones en tiempo real para que tu empresa pueda cumplir.</p>
+  <h1>Detecta si tu empresa aparece en una filtración de datos.</h1>
+  <p class="hero-lead">Monitoreamos brechas activas en Chile. Busca por dominio, correo o RUT para saber si credenciales de tu organización han sido expuestas. La <strong>Ley 21.719</strong> exige que lo sepas a tiempo.</p>
 
-  <div class="search-wrap">
-    <form class="search-row" id="searchForm" onsubmit="doSearch(event)">
-      <input type="text" id="searchInput" placeholder="empresa.cl, usuario@empresa.cl o RUT" autocomplete="off">
-      <button type="submit" id="searchBtn">Buscar</button>
-    </form>
-    <div class="search-note">No exponemos contraseñas. Nunca almacenamos tu consulta.</div>
-  </div>
+  <form class="search-form" id="searchForm" onsubmit="doSearch(event)">
+    <input type="text" id="searchInput" placeholder="empresa.cl, usuario@empresa.cl o RUT" autocomplete="off">
+    <button type="submit" id="searchBtn">Buscar</button>
+  </form>
+  <div class="search-note">No almacenamos consultas ni mostramos contraseñas.</div>
 
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-num" id="statCreds">...</div>
-      <div class="stat-label">Registros</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num" id="statDomains">...</div>
-      <div class="stat-label">Dominios</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Chile</div>
-      <div class="stat-label">Enfoque</div>
-    </div>
-    <div class="stat-live" id="liveBar">
+  <div class="stats">
+    <span><strong id="statCreds">...</strong> registros</span>
+    <span class="stats-sep">·</span>
+    <span><strong id="statDomains">...</strong> dominios</span>
+    <span class="stats-sep">·</span>
+    <span class="stat-live" id="liveBar">
       <span class="live-dot"></span>
-      <span>Última brecha <strong id="lastAgo"></strong></span>
-    </div>
+      última brecha <strong id="lastAgo" style="margin-left:.25rem"></strong>
+    </span>
   </div>
 </section>
 
@@ -254,170 +241,156 @@ footer{padding:2rem;text-align:center;font-size:.73rem;color:var(--text3);border
   <div class="result-box" id="resultBox"></div>
 </div>
 
-<!-- FEATURES -->
-<section class="features">
-  <div class="features-grid">
-    <div class="feature">
-      <h4>Data en tiempo real</h4>
-      <p>No trabajamos con dumps antiguos. Nuestras fuentes entregan credenciales filtradas en las últimas horas, no meses.</p>
-    </div>
-    <div class="feature">
-      <h4>Foco en Chile</h4>
-      <p>Monitoreamos fuentes que apuntan a la región. Datos relevantes para bancos, retail y servicios públicos chilenos.</p>
-    </div>
-    <div class="feature">
-      <h4>Búsqueda por RUT</h4>
-      <p>La única plataforma que permite buscar exposición de credenciales usando RUT chileno como identificador.</p>
-    </div>
-  </div>
-</section>
-
-<hr class="section-sep">
+<hr style="margin-top:4rem">
 
 <!-- ABOUT -->
-<section class="section" id="about">
+<section class="about" id="about">
   <div class="about-grid">
-    <div>
-      <div class="section-label">Quiénes somos</div>
-      <h2 class="section-title">¿Cómo vas a detectar una brecha si no sabes que ocurrió?</h2>
-      <p class="section-sub">Desde diciembre de 2026, la Ley 21.719 obliga a todas las empresas en Chile a detectar y notificar brechas de datos personales. Las multas por incumplimiento llegan hasta los $1.400 millones CLP.</p>
-      <p class="section-sub">Datalert monitorea filtraciones en tiempo real para que sepas el mismo día que tus credenciales aparecen en una brecha — no semanas después.</p>
+    <div class="about-copy">
+      <h2>No puedes responder a una brecha que no detectaste.</h2>
+      <p>Datalert monitorea fuentes de filtraciones activas — no archivos históricos — e indexa registros en tiempo real. Cuando credenciales de tu organización aparecen en una brecha, te avisamos el mismo día.</p>
+      <p>La búsqueda funciona por dominio corporativo, dirección de correo o <strong>RUT chileno</strong>. Es la única plataforma en Chile que admite RUT como identificador de búsqueda.</p>
+      <div class="compliance">
+        <p>La <strong>Ley 21.719</strong> de protección de datos personales entra en vigor en diciembre de 2026. Establece la obligación de detectar, documentar y notificar brechas a la Agencia de Protección de Datos. Las multas llegan a <strong>20.000 UTM (~$1.400 millones CLP)</strong>.</p>
+      </div>
     </div>
-    <ul class="about-points">
-      <li class="about-point">
-        <div class="about-point-num">01</div>
-        <div>
-          <h4>Recopilación continua</h4>
-          <p>Monitoreamos fuentes de filtraciones las 24 horas del día, indexando nuevos registros en tiempo real.</p>
-        </div>
+
+    <ul class="steps">
+      <li class="step">
+        <div class="step-n">01</div>
+        <h4>Monitoreo continuo</h4>
+        <p>Procesamos fuentes de filtraciones las 24 horas e indexamos registros nuevos a medida que aparecen.</p>
       </li>
-      <li class="about-point">
-        <div class="about-point-num">02</div>
-        <div>
-          <h4>Clasificación inteligente</h4>
-          <p>Cada registro se asocia a su dominio, país de origen y fecha de detección para generar perfiles de riesgo precisos.</p>
-        </div>
+      <li class="step">
+        <div class="step-n">02</div>
+        <h4>Clasificación por dominio, correo y RUT</h4>
+        <p>Cada registro se asocia a su dominio, origen y fecha de detección para generar un perfil de exposición.</p>
       </li>
-      <li class="about-point">
-        <div class="about-point-num">03</div>
-        <div>
-          <h4>Alerta y respuesta</h4>
-          <p>Notificamos a las organizaciones afectadas para que puedan forzar cambios de contraseña y evaluar el impacto.</p>
-        </div>
+      <li class="step">
+        <div class="step-n">03</div>
+        <h4>Notificación y respuesta</h4>
+        <p>Alertamos a las organizaciones afectadas para que fuercen cambios de contraseña y evalúen el impacto regulatorio.</p>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div style="text-align:center;margin-bottom:3rem">
-    <div class="section-label">Planes</div>
-    <h2 class="section-title" style="margin-bottom:.4rem">Servicios profesionales</h2>
-    <p style="color:var(--text2);font-size:.9rem">Herramientas de ciberseguridad para empresas de cualquier tamaño.</p>
-  </div>
+<hr>
 
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-name">Básico</div>
-      <div class="price-desc">Para PyMEs que quieren saber si sus credenciales corporativas han sido filtradas.</div>
-      <ul class="price-features">
-        <li>Monitoreo de 1 dominio</li>
-        <li>Alertas por email</li>
-        <li>Dashboard con historial</li>
-        <li>Reporte mensual de exposición</li>
-      </ul>
-      <div class="price-amount"><strong>$35.000</strong> <span>CLP / mes</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-name">Profesional</div>
-      <div class="price-desc">Para empresas medianas y proveedores IT que necesitan integración directa.</div>
-      <ul class="price-features">
-        <li>Hasta 5 dominios</li>
-        <li>API REST + webhooks</li>
-        <li>Búsqueda por email, dominio o RUT</li>
-        <li>Reportes PDF para compliance</li>
-      </ul>
-      <div class="price-amount"><strong>$90.000</strong> <span>CLP / mes</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-name">Enterprise</div>
-      <div class="price-desc">Para empresas reguladas, bancos y corporativos que necesitan cobertura total.</div>
-      <ul class="price-features">
-        <li>Dominios ilimitados</li>
-        <li>API sin límites + SLA 4h</li>
-        <li>Informes para CSIRT / CMF</li>
-        <li>Account manager dedicado</li>
-      </ul>
-      <div class="price-amount"><a href="#contact" style="color:var(--accent);font-weight:600;font-size:.9rem">Contactar &rarr;</a></div>
-    </div>
-  </div>
+<!-- PRICING -->
+<section class="plans" id="plans">
+  <h2>Planes</h2>
+  <table class="plan-table">
+    <thead>
+      <tr>
+        <th>Plan</th>
+        <th>Incluye</th>
+        <th style="text-align:right">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="plan-name">Básico</div>
+          <div style="font-size:.75rem;margin-top:.15rem">Para PyMEs que quieren saber si sus credenciales han sido filtradas.</div>
+        </td>
+        <td>
+          <ul>
+            <li>1 dominio</li>
+            <li>Alertas por email</li>
+            <li>Dashboard con historial</li>
+            <li>Reporte mensual</li>
+          </ul>
+        </td>
+        <td><span class="plan-price">$35.000<span style="font-size:.72rem;font-weight:400;color:var(--text-2)"> CLP/mes</span></span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="plan-name">Profesional</div>
+          <div style="font-size:.75rem;margin-top:.15rem">Para empresas medianas que necesitan integración directa.</div>
+        </td>
+        <td>
+          <ul>
+            <li>Hasta 5 dominios</li>
+            <li>API REST + webhooks</li>
+            <li>Búsqueda por email, dominio o RUT</li>
+            <li>Reportes PDF para compliance</li>
+          </ul>
+        </td>
+        <td><span class="plan-price">$90.000<span style="font-size:.72rem;font-weight:400;color:var(--text-2)"> CLP/mes</span></span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="plan-name">Enterprise</div>
+          <div style="font-size:.75rem;margin-top:.15rem">Para empresas reguladas, bancos y corporativos.</div>
+        </td>
+        <td>
+          <ul>
+            <li>Dominios ilimitados</li>
+            <li>API sin límites + SLA 4h</li>
+            <li>Informes para CSIRT / CMF</li>
+            <li>Account manager dedicado</li>
+          </ul>
+        </td>
+        <td><a href="mailto:contacto@datalert.cl" class="plan-contact">Contactar →</a></td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
-<hr class="section-sep">
+<hr>
 
 <!-- OTHER SERVICES -->
-<section class="section" id="otros">
-  <div style="text-align:center;margin-bottom:3rem">
-    <div class="section-label">También hacemos</div>
-    <h2 class="section-title" style="margin-bottom:.4rem">Otros servicios</h2>
-    <p style="color:var(--text2);font-size:.9rem">Desarrollamos soluciones tecnológicas a medida para empresas que necesitan digitalizarse.</p>
-  </div>
-
-  <div class="osvc-grid">
-    <div class="osvc">
-      <div class="osvc-icon">&#x2692;</div>
-      <h3>Desarrollo web a medida</h3>
-      <p>Aplicaciones web completas — frontend, backend y base de datos, desplegado en la nube.</p>
-      <div class="osvc-tags">
-        <span class="osvc-tag">Frontend</span>
-        <span class="osvc-tag">Backend</span>
-        <span class="osvc-tag">Base de datos</span>
-        <span class="osvc-tag">Cloud</span>
+<section class="others" id="otros">
+  <h2>Consultoría y desarrollo</h2>
+  <ul class="svc-list">
+    <li class="svc-item">
+      <span class="svc-name">Desarrollo web</span>
+      <span class="svc-desc">Aplicaciones web completas — frontend, backend, base de datos y despliegue en nube.</span>
+      <div class="svc-tags">
+        <span class="svc-tag">Frontend</span>
+        <span class="svc-tag">Backend</span>
+        <span class="svc-tag">Cloud</span>
       </div>
-      <div class="osvc-cta"><a href="#contact">Conversemos &rarr;</a></div>
-    </div>
-    <div class="osvc">
-      <div class="osvc-icon">&#x2637;</div>
-      <h3>Ecosistemas BI</h3>
-      <p>Pipelines de datos completos: ETL, data warehouses, dashboards y reportería automatizada.</p>
-      <div class="osvc-tags">
-        <span class="osvc-tag">ETL</span>
-        <span class="osvc-tag">Data Warehouse</span>
-        <span class="osvc-tag">Dashboards</span>
-        <span class="osvc-tag">Reportería</span>
+    </li>
+    <li class="svc-item">
+      <span class="svc-name">Ecosistemas de datos</span>
+      <span class="svc-desc">Pipelines completos: ETL, data warehouses, dashboards y reportería automatizada.</span>
+      <div class="svc-tags">
+        <span class="svc-tag">ETL</span>
+        <span class="svc-tag">Data Warehouse</span>
+        <span class="svc-tag">Dashboards</span>
       </div>
-      <div class="osvc-cta"><a href="#contact">Conversemos &rarr;</a></div>
-    </div>
-    <div class="osvc">
-      <div class="osvc-icon">&#x2699;</div>
-      <h3>Automatización con IA</h3>
-      <p>Automatización de procesos repetitivos con inteligencia artificial y n8n.</p>
-      <div class="osvc-tags">
-        <span class="osvc-tag">n8n</span>
-        <span class="osvc-tag">IA</span>
-        <span class="osvc-tag">Revisión documental</span>
-        <span class="osvc-tag">Automatización</span>
+    </li>
+    <li class="svc-item">
+      <span class="svc-name">Automatización</span>
+      <span class="svc-desc">Integración de sistemas y automatización de flujos de trabajo repetitivos.</span>
+      <div class="svc-tags">
+        <span class="svc-tag">n8n</span>
+        <span class="svc-tag">Integración</span>
+        <span class="svc-tag">Workflows</span>
       </div>
-      <div class="osvc-cta"><a href="#contact">Conversemos &rarr;</a></div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </section>
 
 <!-- CTA -->
 <section class="cta" id="contact">
-  <div class="cta-box">
-    <h2>Evalúa la exposición de tu empresa</h2>
-    <p>Solicita una evaluación gratuita de tu dominio corporativo. Sin compromisos.</p>
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Evalúa la exposición de tu empresa.</h2>
+      <p>Evaluación gratuita de tu dominio corporativo. Sin compromiso.</p>
+    </div>
     <div class="cta-btns">
-      <a href="mailto:contacto@datalert.cl" class="btn-fill">Solicitar evaluación</a>
-      <a href="#search" class="btn-ghost">Buscar ahora</a>
+      <a href="mailto:contacto@datalert.cl" class="btn-pri">Solicitar evaluación</a>
+      <a href="#search" class="btn-sec">Buscar ahora</a>
     </div>
   </div>
 </section>
 
 <footer>
-  2026 Datalert. Inteligencia de brechas en Chile. No exponemos contraseñas ni datos sensibles.
+  <span>© 2026 Datalert SpA — Chile</span>
+  <span>No exponemos contraseñas ni datos sensibles en ninguna consulta.</span>
 </footer>
 
 <script>
@@ -467,48 +440,25 @@ async function doSearch(e){
     const hidden=d.domains-1;
     let hiddenRows='';
     if(hidden>0){
-      hiddenRows=`
-      <li class="rb-row rb-blurred">
-        <span class="rb-row-domain">████████.██</span>
-        <span class="rb-row-right"><span class="rb-row-count">███</span></span>
-      </li>`.repeat(Math.min(hidden,3));
-      hiddenRows+=`
-      <li class="rb-locked">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <span>${hidden} sitio${hidden>1?'s':''} oculto${hidden>1?'s':''}.</span>
-        <a href="#contact">Desbloquear reporte completo</a>
-      </li>`;
+      hiddenRows=`<li class="rb-row rb-blurred"><span class="rb-row-domain">████████.██</span><span class="rb-row-right"><span class="rb-row-count">███</span></span></li>`.repeat(Math.min(hidden,3));
+      hiddenRows+=`<li class="rb-locked"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>${hidden} sitio${hidden>1?'s':''} oculto${hidden>1?'s':''}.</span><a href="#contact">Desbloquear reporte</a></li>`;
     }
     const leakAgo=d.last_leak_ago||null;
     const persona=d.persona||null;
     const pAddr2=persona&&persona.direccion?`${persona.direccion}${persona.ciudad?' — '+persona.ciudad:''}`:'';
-    const personaHtml=persona?`
-      <div class="rb-persona">
-        <div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
-        <div class="rb-persona-info"><div class="rb-persona-name">${esc(persona.nombre)}</div>${pAddr2?`<div class="rb-persona-addr">${esc(pAddr2)}</div>`:''}</div>
-        <div class="rb-persona-rut">${esc(persona.rut)}</div>
-      </div>`:'';
+    const personaHtml=persona?`<div class="rb-persona"><div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div><div class="rb-persona-info"><div class="rb-persona-name">${esc(persona.nombre)}</div>${pAddr2?`<div class="rb-persona-addr">${esc(pAddr2)}</div>`:''}</div><div class="rb-persona-rut">${esc(persona.rut)}</div></div>`:'';
     box.innerHTML=`
-      <div class="rb-header">
-        <h3>${persona?esc(persona.nombre):esc(q)}</h3>
-        <span class="rb-badge ${r.c}">${r.l}</span>
-      </div>
+      <div class="rb-header"><h3>${persona?esc(persona.nombre):esc(q)}</h3><span class="rb-badge ${r.c}">${r.l}</span></div>
       ${personaHtml}
-      ${leakAgo?`<div class="rb-leak-ago"><span class="live-dot"></span>Última filtración detectada ${leakAgo}</div>`:''}
+      ${leakAgo?`<div class="rb-leak-ago"><span class="live-dot"></span>&nbsp;Última filtración detectada ${leakAgo}</div>`:''}
       <div class="rb-stats">
         <div class="rb-stat"><div class="rb-stat-n">${d.total}</div><div class="rb-stat-l">Registros</div></div>
         <div class="rb-stat"><div class="rb-stat-n">${d.domains}</div><div class="rb-stat-l">${isDomain?'Fuentes':'Dominios'}</div></div>
-        <div class="rb-stat"><div class="rb-stat-n">${d.first_seen||'-'}</div><div class="rb-stat-l">Desde</div></div>
-        <div class="rb-stat"><div class="rb-stat-n">${d.last_seen||'-'}</div><div class="rb-stat-l">Hasta</div></div>
+        <div class="rb-stat"><div class="rb-stat-n">${d.first_seen||'—'}</div><div class="rb-stat-l">Desde</div></div>
+        <div class="rb-stat"><div class="rb-stat-n">${d.last_seen||'—'}</div><div class="rb-stat-l">Hasta</div></div>
       </div>
       <ul class="rb-list">
-        <li class="rb-row">
-          <span class="rb-row-domain">${esc(first.domain)}</span>
-          <span class="rb-row-right">
-            <span>${first.first_seen||''}</span>
-            <span class="rb-row-count">${first.count}</span>
-          </span>
-        </li>
+        <li class="rb-row"><span class="rb-row-domain">${esc(first.domain)}</span><span class="rb-row-right"><span>${first.first_seen||''}</span><span class="rb-row-count">${first.count}</span></span></li>
         ${hiddenRows}
       </ul>`;
     box.classList.add('on');
