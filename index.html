@@ -99,6 +99,13 @@ a{color:inherit;text-decoration:none}
 .rb-locked a:hover{text-decoration:underline}
 .rb-empty{padding:2rem;text-align:center;color:var(--green);font-weight:500;font-size:.92rem}
 .rb-error{padding:1.5rem;text-align:center;color:var(--red);font-size:.88rem}
+.rb-persona{padding:1rem 1.5rem;background:rgba(59,130,246,.04);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1.2rem}
+.rb-persona-icon{width:40px;height:40px;min-width:40px;border-radius:50%;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center}
+.rb-persona-icon svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.5}
+.rb-persona-info{flex:1;min-width:0}
+.rb-persona-name{font-size:.92rem;font-weight:600;color:var(--white)}
+.rb-persona-detail{font-size:.78rem;color:var(--text2);margin-top:.15rem}
+.rb-persona-rut{font-size:.75rem;color:var(--accent);font-weight:500;font-variant-numeric:tabular-nums}
 
 /* ── FEATURES ── */
 .features{max-width:var(--max-w);margin:0 auto;padding:var(--section-gap) 2rem}
@@ -470,11 +477,22 @@ async function doSearch(e){
       </li>`;
     }
     const leakAgo=d.last_leak_ago||null;
+    const persona=d.persona||null;
+    const personaHtml=persona?`
+      <div class="rb-persona">
+        <div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+        <div class="rb-persona-info">
+          <div class="rb-persona-name">${esc(persona.nombre)}</div>
+          <div class="rb-persona-detail">${esc(persona.direccion||'')}${persona.ciudad?' — '+esc(persona.ciudad):''}</div>
+        </div>
+        <div class="rb-persona-rut">${esc(persona.rut)}</div>
+      </div>`:'';
     box.innerHTML=`
       <div class="rb-header">
-        <h3>${esc(q)}</h3>
+        <h3>${persona?esc(persona.nombre):esc(q)}</h3>
         <span class="rb-badge ${r.c}">${r.l}</span>
       </div>
+      ${personaHtml}
       ${leakAgo?`<div class="rb-leak-ago"><span class="live-dot"></span>Última filtración detectada ${leakAgo}</div>`:''}
       <div class="rb-stats">
         <div class="rb-stat"><div class="rb-stat-n">${d.total}</div><div class="rb-stat-l">Registros</div></div>
