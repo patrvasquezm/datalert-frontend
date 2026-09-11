@@ -4,180 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Datalert — Brechas de datos en Chile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f4f0e8;
-  --white:#fffefb;
-  --border:#ddd8cf;
-  --border-2:#c9c3b8;
-  --text:#17150f;
-  --text-2:#6b6257;
-  --text-3:#a09890;
-  --red:#b71c1c;
-  --red-soft:rgba(183,28,28,.07);
-  --red-border:rgba(183,28,28,.2);
-  --orange:#c45000;
-  --yellow:#8a6800;
-  --green:#1a5c35;
-  --data-bg:#111009;
-  --data-border:#252218;
-  --data-text:#c4bdb0;
-  --data-dim:#5c5648;
-  --data-green:#4ade80;
-  --data-red:#f87171;
-  --data-orange:#fb923c;
-  --data-yellow:#fbbf24;
-  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  --serif:Georgia,'Times New Roman',Times,serif;
-  --mono:'SF Mono','Monaco','Cascadia Mono','Consolas',monospace;
-  --max-w:1040px;
+  --bg:#09090b;
+  --surface:#111113;
+  --border:#1f1f23;
+  --border-hi:#2d2d32;
+  --text:#a1a1aa;
+  --text-hi:#d4d4d8;
+  --white:#f4f4f5;
+  --red:#ef4444;--orange:#f97316;--yellow:#eab308;--green:#22c55e;
+  --font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --max-w:1060px;
+  --gap:6rem;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 
 /* ── NAV ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);height:50px;display:flex;align-items:center;padding:0 2rem}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:52px;display:flex;align-items:center;padding:0 2rem}
 .nav-inner{max-width:var(--max-w);width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.nav-brand{font-family:var(--serif);font-size:1.05rem;color:var(--text);letter-spacing:-.01em}
-.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-links a{font-size:.78rem;color:var(--text-2);transition:color .15s}
-.nav-links a:hover{color:var(--text)}
-.nav-email{color:var(--red) !important}
+.nav-brand{font-size:.95rem;font-weight:700;letter-spacing:-.025em;color:var(--white)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text);font-size:.82rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{font-size:.82rem;font-weight:600;color:var(--white);border:1px solid var(--border-hi);padding:.38rem 1rem;border-radius:6px;transition:border-color .15s}
+.nav-cta:hover{border-color:var(--text)}
 
 /* ── HERO ── */
-.hero{padding:6.5rem 2rem 3.5rem;max-width:var(--max-w);margin:0 auto}
-.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,4.2vw,3rem);font-weight:normal;line-height:1.12;color:var(--text);margin-bottom:.9rem;max-width:680px}
-.hero-lead{font-size:.9rem;color:var(--text-2);line-height:1.75;max-width:480px;margin-bottom:2rem}
-.hero-lead strong{color:var(--text);font-weight:600}
+.hero{padding:7rem 2rem 3rem;max-width:var(--max-w);margin:0 auto}
+.hero h1{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;line-height:1.14;letter-spacing:-.035em;color:var(--white);margin-bottom:.8rem;max-width:640px}
+.hero-p{font-size:.9rem;color:var(--text);line-height:1.72;max-width:480px;margin-bottom:2rem}
+.hero-p strong{color:var(--text-hi);font-weight:600}
 
 /* ── SEARCH ── */
-.search-form{display:flex;gap:6px;max-width:520px;margin-bottom:.5rem}
-.search-form input{flex:1;padding:.65rem .9rem;background:var(--white);border:1px solid var(--border-2);border-radius:4px;color:var(--text);font-size:.87rem;font-family:var(--sans);outline:none;transition:border-color .15s}
-.search-form input:focus{border-color:var(--text-3)}
-.search-form input::placeholder{color:var(--text-3)}
-.search-form button{padding:.65rem 1.2rem;background:var(--text);color:var(--bg);border:none;border-radius:4px;font-size:.82rem;font-weight:600;font-family:var(--sans);cursor:pointer;transition:opacity .15s;white-space:nowrap}
-.search-form button:hover{opacity:.78}
-.search-form button:disabled{opacity:.28;cursor:default}
-.search-note{font-size:.7rem;color:var(--text-3);margin-bottom:1.5rem}
+.search-row{display:flex;gap:7px;max-width:520px;margin-bottom:.5rem}
+.search-row input{flex:1;padding:.7rem 1rem;background:var(--surface);border:1px solid var(--border-hi);border-radius:7px;color:var(--white);font-size:.87rem;font-family:var(--font);outline:none;transition:border-color .15s}
+.search-row input:focus{border-color:#3f3f46}
+.search-row input::placeholder{color:#52525b}
+.search-row button{padding:.7rem 1.3rem;background:var(--white);color:var(--bg);border:none;border-radius:7px;font-size:.82rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.search-row button:hover{opacity:.85}
+.search-row button:disabled{opacity:.3;cursor:default}
+.search-note{font-size:.72rem;color:#52525b;margin-bottom:1.8rem}
 
 /* ── STATS ── */
-.stats{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;font-size:.77rem;color:var(--text-2)}
-.stats strong{color:var(--text);font-variant-numeric:tabular-nums}
-.stats-sep{color:var(--border-2);user-select:none}
-.stat-live{display:none;align-items:center;gap:.3rem}
+.stats{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap;font-size:.78rem;color:var(--text)}
+.stats strong{color:var(--text-hi);font-weight:600;font-variant-numeric:tabular-nums}
+.stats-sep{color:var(--border-hi);user-select:none}
+.stat-live{display:none;align-items:center;gap:.4rem}
 .stat-live.on{display:flex}
-.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2.5s ease-in-out infinite;flex-shrink:0}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.1}}
+.live-mark{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
 
 /* ── RESULTS ── */
 .results-wrap{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
-.spinner{display:none;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--text-2);border-radius:50%;animation:spin .5s linear infinite;margin:2rem 0}
+.spinner{display:none;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin .5s linear infinite;margin:2rem 0}
 .spinner.on{display:block}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* result box — dark terminal panel */
-.result-box{background:var(--data-bg);border:1px solid var(--data-border);border-radius:5px;margin-top:.8rem;display:none;overflow:hidden;color:var(--data-text);font-size:.84rem}
+.result-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-top:.8rem;display:none;overflow:hidden}
 .result-box.on{display:block}
-.rb-header{padding:.85rem 1.1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--data-border)}
-.rb-header h3{font-size:.85rem;font-weight:500;color:#e0d8cc;font-family:var(--mono);letter-spacing:.01em}
-.rb-badge{font-size:.62rem;font-weight:700;padding:.18rem .5rem;border-radius:3px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--sans)}
-.rb-badge.critical{background:rgba(248,113,113,.12);color:var(--data-red)}
-.rb-badge.high{background:rgba(251,146,60,.12);color:var(--data-orange)}
-.rb-badge.medium{background:rgba(251,191,36,.12);color:var(--data-yellow)}
-.rb-badge.low{background:rgba(74,222,128,.08);color:var(--data-green)}
-.rb-badge.none{background:rgba(255,255,255,.04);color:var(--data-dim)}
-.rb-leak-ago{padding:.4rem 1.1rem;border-bottom:1px solid var(--data-border);display:flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--data-green);font-family:var(--mono)}
-.rb-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--data-border)}
-.rb-stat{padding:.65rem .5rem;text-align:center;border-right:1px solid var(--data-border)}
+.rb-header{padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.rb-header h3{font-size:.88rem;font-weight:600;color:var(--white)}
+.rb-badge{font-size:.67rem;font-weight:700;padding:.22rem .6rem;border-radius:4px;text-transform:uppercase;letter-spacing:.05em}
+.rb-badge.critical{background:rgba(239,68,68,.1);color:var(--red)}
+.rb-badge.high{background:rgba(249,115,22,.1);color:var(--orange)}
+.rb-badge.medium{background:rgba(234,179,8,.1);color:var(--yellow)}
+.rb-badge.low{background:rgba(34,197,94,.08);color:var(--green)}
+.rb-badge.none{background:rgba(255,255,255,.04);color:#52525b}
+.rb-leak-ago{padding:.5rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--green)}
+.rb-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.rb-stat{padding:.8rem .6rem;text-align:center;border-right:1px solid var(--border)}
 .rb-stat:last-child{border-right:none}
-.rb-stat-n{font-size:.88rem;font-weight:600;color:#e0d8cc;white-space:nowrap;font-family:var(--mono);font-variant-numeric:tabular-nums}
-.rb-stat-l{font-size:.58rem;color:var(--data-dim);margin-top:.1rem;text-transform:uppercase;letter-spacing:.06em}
+.rb-stat-n{font-size:.9rem;font-weight:700;color:var(--white);white-space:nowrap;font-variant-numeric:tabular-nums}
+.rb-stat-l{font-size:.6rem;color:#52525b;margin-top:.1rem;text-transform:uppercase;letter-spacing:.05em}
 .rb-list{list-style:none}
-.rb-row{display:flex;align-items:center;justify-content:space-between;padding:.55rem 1.1rem;border-bottom:1px solid var(--data-border);font-size:.8rem}
+.rb-row{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.4rem;border-bottom:1px solid var(--border);font-size:.84rem}
 .rb-row:last-child{border-bottom:none}
-.rb-row-domain{font-weight:500;color:#e0d8cc;font-family:var(--mono)}
-.rb-row-right{display:flex;align-items:center;gap:.65rem;color:var(--data-dim);font-size:.72rem}
-.rb-row-count{font-weight:600;color:#e0d8cc;font-family:var(--mono);font-variant-numeric:tabular-nums}
-.rb-blurred{filter:blur(4px);opacity:.2;pointer-events:none;user-select:none}
-.rb-locked{display:flex;align-items:center;gap:.4rem;justify-content:center;padding:.65rem 1.1rem;color:var(--data-dim);font-size:.73rem;border-top:1px solid var(--data-border)}
-.rb-locked svg{opacity:.3;flex-shrink:0}
-.rb-locked a{color:var(--data-green);font-weight:500;margin-left:.1rem}
-.rb-locked a:hover{text-decoration:underline}
-.rb-empty{padding:1.5rem;text-align:center;color:var(--data-green);font-size:.83rem;font-family:var(--mono)}
-.rb-error{padding:1.2rem;text-align:center;color:var(--data-red);font-size:.78rem;font-family:var(--mono)}
-.rb-persona{padding:.55rem 1.1rem;border-bottom:1px solid var(--data-border);display:flex;align-items:center;gap:.65rem}
-.rb-persona-icon{width:26px;height:26px;min-width:26px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--data-border);display:flex;align-items:center;justify-content:center}
-.rb-persona-icon svg{width:13px;height:13px;stroke:var(--data-dim);fill:none;stroke-width:1.5}
+.rb-row-domain{font-weight:500;color:var(--white)}
+.rb-row-right{display:flex;align-items:center;gap:.7rem;color:var(--text);font-size:.75rem}
+.rb-row-count{font-weight:600;color:var(--white);font-variant-numeric:tabular-nums}
+.rb-blurred{filter:blur(4px);opacity:.3;pointer-events:none;user-select:none}
+.rb-locked{display:flex;align-items:center;gap:.4rem;justify-content:center;padding:.8rem 1.4rem;color:var(--text);font-size:.78rem;border-top:1px solid var(--border)}
+.rb-locked svg{opacity:.35;flex-shrink:0}
+.rb-locked a{color:var(--text-hi);font-weight:600;margin-left:.15rem;text-decoration:underline;text-underline-offset:2px}
+.rb-empty{padding:1.5rem;text-align:center;color:var(--green);font-weight:500;font-size:.88rem}
+.rb-error{padding:1.2rem;text-align:center;color:var(--red);font-size:.84rem}
+.rb-persona{padding:.7rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.7rem}
+.rb-persona-icon{width:28px;height:28px;min-width:28px;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border-hi);display:flex;align-items:center;justify-content:center}
+.rb-persona-icon svg{width:14px;height:14px;stroke:var(--text);fill:none;stroke-width:1.5}
 .rb-persona-info{flex:1;min-width:0}
-.rb-persona-name{font-size:.8rem;font-weight:500;color:#e0d8cc;font-family:var(--mono)}
-.rb-persona-addr{font-size:.7rem;color:var(--data-dim);margin-top:.1rem;filter:blur(4px);user-select:none}
-.rb-persona-rut{font-size:.7rem;color:var(--data-green);font-weight:500;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.rb-persona-name{font-size:.84rem;font-weight:600;color:var(--white)}
+.rb-persona-addr{font-size:.74rem;color:var(--text);margin-top:.1rem;filter:blur(4px);user-select:none}
+.rb-persona-rut{font-size:.72rem;color:var(--text-hi);font-weight:500;font-variant-numeric:tabular-nums}
 
 /* ── DIVIDER ── */
-hr{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border)}
+.sep{max-width:var(--max-w);margin:0 auto;border:none;border-top:1px solid var(--border)}
 
 /* ── ABOUT ── */
-.about{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem}
+.about{max-width:var(--max-w);margin:0 auto;padding:var(--gap) 2rem}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.about h2{font-family:var(--serif);font-size:1.45rem;font-weight:normal;color:var(--text);margin-bottom:1rem;line-height:1.25}
-.about-copy p{font-size:.87rem;color:var(--text-2);line-height:1.78;margin-bottom:.75rem}
-.about-copy strong{color:var(--text);font-weight:600}
-.compliance{margin-top:1.5rem;padding:.85rem 1rem;border-left:2px solid var(--red);background:var(--red-soft);border-radius:0 3px 3px 0}
-.compliance p{font-size:.78rem;color:var(--text-2);line-height:1.65;margin:0}
-.compliance strong{color:var(--text)}
+.about h2{font-size:1.35rem;font-weight:700;color:var(--white);line-height:1.22;letter-spacing:-.025em;margin-bottom:.9rem}
+.about-copy p{font-size:.87rem;color:var(--text);line-height:1.76;margin-bottom:.75rem}
+.about-copy strong{color:var(--text-hi);font-weight:600}
+.compliance{margin-top:1.5rem;padding:.9rem 1rem;border:1px solid var(--border);border-left:2px solid #3f3f46;border-radius:0 6px 6px 0}
+.compliance p{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+.compliance strong{color:var(--text-hi)}
 
 /* steps */
 .steps{list-style:none;border-top:1px solid var(--border)}
-.step{padding:.95rem 0;border-bottom:1px solid var(--border)}
-.step-n{font-size:.65rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.15rem}
-.step h4{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
-.step p{font-size:.78rem;color:var(--text-2);line-height:1.6;margin:0}
+.step{padding:1rem 0;border-bottom:1px solid var(--border)}
+.step-n{font-size:.65rem;color:#52525b;text-transform:uppercase;letter-spacing:.09em;margin-bottom:.15rem}
+.step h4{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.2rem;letter-spacing:-.01em}
+.step p{font-size:.8rem;color:var(--text);line-height:1.62;margin:0}
 
 /* ── PRICING ── */
-.plans{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem}
-.plans h2{font-family:var(--serif);font-size:1.45rem;font-weight:normal;color:var(--text);margin-bottom:2rem}
-.plan-table{width:100%;border-collapse:collapse;font-size:.82rem}
-.plan-table thead tr{border-bottom:2px solid var(--text)}
-.plan-table th{text-align:left;padding:.6rem 0;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);padding-right:2rem}
+.plans{max-width:var(--max-w);margin:0 auto;padding:var(--gap) 2rem}
+.plans-head{margin-bottom:2rem}
+.plans-head h2{font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:-.025em}
+.plan-table{width:100%;border-collapse:collapse;font-size:.83rem}
+.plan-table thead tr{border-bottom:1px solid var(--border-hi)}
+.plan-table th{text-align:left;padding:.6rem 0;font-size:.67rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#52525b;padding-right:2.5rem}
 .plan-table th:last-child{padding-right:0;text-align:right}
-.plan-table td{padding:.85rem 0;padding-right:2rem;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.45}
+.plan-table td{padding:.9rem 0;padding-right:2.5rem;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;line-height:1.45}
 .plan-table td:last-child{padding-right:0;text-align:right}
-.plan-table .plan-name{font-weight:600;color:var(--text)}
-.plan-table .plan-price{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:.88rem}
-.plan-table .plan-contact{color:var(--red);font-weight:600}
-.plan-table ul{list-style:none;margin-top:.2rem}
-.plan-table ul li{font-size:.77rem;color:var(--text-2);line-height:1.7}
-.plan-table ul li::before{content:'— ';color:var(--text-3)}
+.plan-table .plan-name{font-weight:700;color:var(--white);font-size:.88rem;letter-spacing:-.01em}
+.plan-table .plan-sub{font-size:.75rem;color:var(--text);margin-top:.15rem;line-height:1.4}
+.plan-table ul{list-style:none;margin-top:.25rem}
+.plan-table ul li{font-size:.78rem;color:var(--text);line-height:1.75;padding-left:.8rem;position:relative}
+.plan-table ul li::before{content:'·';position:absolute;left:0;color:#52525b}
+.plan-price{font-weight:700;color:var(--white);font-variant-numeric:tabular-nums;font-size:.92rem;white-space:nowrap}
+.plan-price span{font-size:.72rem;font-weight:400;color:var(--text)}
+.plan-contact{color:var(--text-hi);font-weight:600;font-size:.84rem;text-decoration:underline;text-underline-offset:2px}
 
-/* ── SERVICES ── */
-.others{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem}
-.others h2{font-family:var(--serif);font-size:1.45rem;font-weight:normal;color:var(--text);margin-bottom:2rem}
+/* ── OTHER SERVICES ── */
+.others{max-width:var(--max-w);margin:0 auto;padding:var(--gap) 2rem}
+.others h2{font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:-.025em;margin-bottom:2rem}
 .svc-list{list-style:none;border-top:1px solid var(--border)}
-.svc-item{display:grid;grid-template-columns:200px 1fr 180px;gap:2rem;padding:1.1rem 0;border-bottom:1px solid var(--border);align-items:start}
-.svc-name{font-size:.87rem;font-weight:600;color:var(--text)}
-.svc-desc{font-size:.8rem;color:var(--text-2);line-height:1.6}
+.svc-item{display:grid;grid-template-columns:180px 1fr auto;gap:2rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:start}
+.svc-name{font-size:.87rem;font-weight:600;color:var(--white);letter-spacing:-.01em}
+.svc-desc{font-size:.8rem;color:var(--text);line-height:1.6}
 .svc-tags{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:flex-end}
-.svc-tag{font-size:.63rem;padding:.13rem .4rem;border:1px solid var(--border);border-radius:2px;color:var(--text-3)}
+.svc-tag{font-size:.63rem;padding:.14rem .42rem;border:1px solid var(--border-hi);border-radius:4px;color:#52525b}
 
 /* ── CTA ── */
-.cta{max-width:var(--max-w);margin:0 auto;padding:5.5rem 2rem 6rem}
-.cta-inner{border-top:2px solid var(--text);padding-top:2rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.cta-copy h2{font-family:var(--serif);font-size:1.3rem;font-weight:normal;color:var(--text);margin-bottom:.3rem}
-.cta-copy p{font-size:.82rem;color:var(--text-2)}
-.cta-btns{display:flex;gap:.5rem;flex-wrap:wrap;flex-shrink:0;margin-top:.2rem}
-.btn-pri{background:var(--text);color:var(--bg);padding:.6rem 1.3rem;border-radius:4px;font-size:.82rem;font-weight:600;transition:opacity .15s;display:inline-block}
-.btn-pri:hover{opacity:.78}
-.btn-sec{color:var(--text-2);padding:.6rem 1.3rem;border-radius:4px;font-size:.82rem;border:1px solid var(--border);transition:border-color .15s;display:inline-block}
-.btn-sec:hover{border-color:var(--border-2);color:var(--text)}
+.cta{max-width:var(--max-w);margin:0 auto;padding:var(--gap) 2rem}
+.cta-inner{border-top:1px solid var(--border-hi);padding-top:2.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-copy h2{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.025em;margin-bottom:.3rem}
+.cta-copy p{font-size:.84rem;color:var(--text)}
+.cta-btns{display:flex;gap:.5rem;flex-wrap:wrap;flex-shrink:0;margin-top:.15rem}
+.btn-pri{background:var(--white);color:var(--bg);padding:.6rem 1.3rem;border-radius:7px;font-size:.82rem;font-weight:700;transition:opacity .15s;display:inline-block;font-family:var(--font)}
+.btn-pri:hover{opacity:.85}
+.btn-sec{color:var(--text);padding:.6rem 1.3rem;border-radius:7px;font-size:.82rem;font-weight:500;border:1px solid var(--border-hi);transition:border-color .15s;display:inline-block;font-family:var(--font)}
+.btn-sec:hover{border-color:var(--text);color:var(--text-hi)}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.7rem;color:var(--text-3)}
+footer{border-top:1px solid var(--border);padding:1.3rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.71rem;color:#52525b}
 
 /* ── MOBILE ── */
 @media(max-width:820px){
-  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .svc-item{grid-template-columns:1fr 1fr;gap:1rem}
   .svc-tags{justify-content:flex-start}
   .plan-table th:nth-child(2),.plan-table td:nth-child(2){display:none}
@@ -186,14 +174,13 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
   .nav-links .hide-sm{display:none}
   .rb-stats{grid-template-columns:repeat(2,1fr)}
   .rb-stat:nth-child(2){border-right:none}
-  .rb-stat:nth-child(1),.rb-stat:nth-child(2){border-bottom:1px solid var(--data-border)}
+  .rb-stat:nth-child(1),.rb-stat:nth-child(2){border-bottom:1px solid var(--border)}
   .svc-item{grid-template-columns:1fr}
   .cta-inner{flex-direction:column}
-  footer{flex-direction:column;text-align:center}
 }
 @media(max-width:440px){
-  .search-form{flex-direction:column}
-  .search-form button{width:100%}
+  .search-row{flex-direction:column}
+  .search-row button{width:100%}
 }
 </style>
 </head>
@@ -207,17 +194,17 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
       <li class="hide-sm"><a href="#search">Buscar</a></li>
       <li class="hide-sm"><a href="#about">Producto</a></li>
       <li class="hide-sm"><a href="#plans">Planes</a></li>
-      <li><a href="mailto:contacto@datalert.cl" class="nav-email">contacto@datalert.cl</a></li>
     </ul>
+    <a href="mailto:contacto@datalert.cl" class="nav-cta">Contacto</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="search">
-  <h1>Detecta si tu empresa aparece en una filtración de datos.</h1>
-  <p class="hero-lead">Monitoreamos brechas activas en Chile. Busca por dominio, correo o RUT para saber si credenciales de tu organización han sido expuestas. La <strong>Ley 21.719</strong> exige que lo sepas a tiempo.</p>
+<section id="search" style="max-width:var(--max-w);margin:0 auto;padding:7rem 2rem 3rem">
+  <h1 style="font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;line-height:1.14;letter-spacing:-.035em;color:var(--white);margin-bottom:.8rem;max-width:640px">Detecta si tu empresa aparece en una filtración de datos</h1>
+  <p style="font-size:.9rem;color:var(--text);line-height:1.72;max-width:480px;margin-bottom:2rem">Monitoreamos brechas activas en Chile. Busca por dominio, correo o RUT. La <strong style="color:var(--text-hi);font-weight:600">Ley 21.719</strong> exige que lo sepas a tiempo.</p>
 
-  <form class="search-form" id="searchForm" onsubmit="doSearch(event)">
+  <form class="search-row" id="searchForm" onsubmit="doSearch(event)">
     <input type="text" id="searchInput" placeholder="empresa.cl, usuario@empresa.cl o RUT" autocomplete="off">
     <button type="submit" id="searchBtn">Buscar</button>
   </form>
@@ -229,7 +216,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
     <span><strong id="statDomains">...</strong> dominios</span>
     <span class="stats-sep">·</span>
     <span class="stat-live" id="liveBar">
-      <span class="live-dot"></span>
+      <span class="live-mark"></span>
       última brecha <strong id="lastAgo" style="margin-left:.25rem"></strong>
     </span>
   </div>
@@ -241,45 +228,47 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
   <div class="result-box" id="resultBox"></div>
 </div>
 
-<hr style="margin-top:4rem">
+<hr class="sep" style="margin-top:4rem">
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-copy">
-      <h2>No puedes responder a una brecha que no detectaste.</h2>
-      <p>Datalert monitorea fuentes de filtraciones activas — no archivos históricos — e indexa registros en tiempo real. Cuando credenciales de tu organización aparecen en una brecha, te avisamos el mismo día.</p>
-      <p>La búsqueda funciona por dominio corporativo, dirección de correo o <strong>RUT chileno</strong>. Es la única plataforma en Chile que admite RUT como identificador de búsqueda.</p>
+      <h2>No puedes reportar una brecha que no detectaste</h2>
+      <p>Datalert monitorea fuentes activas de filtraciones e indexa registros en tiempo real. Cuando credenciales de tu empresa aparecen en una brecha, te avisamos el mismo día, no semanas después.</p>
+      <p>Busca por dominio corporativo, correo o <strong>RUT chileno</strong>. Es la única plataforma en Chile que admite RUT como identificador.</p>
       <div class="compliance">
-        <p>La <strong>Ley 21.719</strong> de protección de datos personales entra en vigor en diciembre de 2026. Establece la obligación de detectar, documentar y notificar brechas a la Agencia de Protección de Datos. Las multas llegan a <strong>20.000 UTM (~$1.400 millones CLP)</strong>.</p>
+        <p>La <strong>Ley 21.719</strong> entra en vigor en diciembre de 2026. Obliga a detectar, documentar y notificar brechas a la Agencia de Protección de Datos. Las multas llegan a <strong>20.000 UTM (~$1.400 millones CLP)</strong>.</p>
       </div>
     </div>
 
     <ul class="steps">
       <li class="step">
-        <div class="step-n">01</div>
+        <div class="step-n">Recopilación</div>
         <h4>Monitoreo continuo</h4>
         <p>Procesamos fuentes de filtraciones las 24 horas e indexamos registros nuevos a medida que aparecen.</p>
       </li>
       <li class="step">
-        <div class="step-n">02</div>
-        <h4>Clasificación por dominio, correo y RUT</h4>
-        <p>Cada registro se asocia a su dominio, origen y fecha de detección para generar un perfil de exposición.</p>
+        <div class="step-n">Clasificación</div>
+        <h4>Perfil de exposición</h4>
+        <p>Cada registro se asocia a su dominio, origen y fecha para generar un perfil de riesgo actualizado.</p>
       </li>
       <li class="step">
-        <div class="step-n">03</div>
-        <h4>Notificación y respuesta</h4>
-        <p>Alertamos a las organizaciones afectadas para que fuercen cambios de contraseña y evalúen el impacto regulatorio.</p>
+        <div class="step-n">Respuesta</div>
+        <h4>Alerta y notificación</h4>
+        <p>Avisamos para que puedas actuar: cambios de contraseña, evaluación de impacto, reporte regulatorio.</p>
       </li>
     </ul>
   </div>
 </section>
 
-<hr>
+<hr class="sep">
 
 <!-- PRICING -->
 <section class="plans" id="plans">
-  <h2>Planes</h2>
+  <div class="plans-head">
+    <h2>Planes</h2>
+  </div>
   <table class="plan-table">
     <thead>
       <tr>
@@ -292,7 +281,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
       <tr>
         <td>
           <div class="plan-name">Básico</div>
-          <div style="font-size:.75rem;margin-top:.15rem">Para PyMEs que quieren saber si sus credenciales han sido filtradas.</div>
+          <div class="plan-sub">Para PyMEs que quieren saber si sus credenciales corporativas han sido filtradas.</div>
         </td>
         <td>
           <ul>
@@ -302,12 +291,12 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
             <li>Reporte mensual</li>
           </ul>
         </td>
-        <td><span class="plan-price">$35.000<span style="font-size:.72rem;font-weight:400;color:var(--text-2)"> CLP/mes</span></span></td>
+        <td><span class="plan-price">$35.000 <span>CLP/mes</span></span></td>
       </tr>
       <tr>
         <td>
           <div class="plan-name">Profesional</div>
-          <div style="font-size:.75rem;margin-top:.15rem">Para empresas medianas que necesitan integración directa.</div>
+          <div class="plan-sub">Para empresas medianas que necesitan integración directa con sus sistemas.</div>
         </td>
         <td>
           <ul>
@@ -317,12 +306,12 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
             <li>Reportes PDF para compliance</li>
           </ul>
         </td>
-        <td><span class="plan-price">$90.000<span style="font-size:.72rem;font-weight:400;color:var(--text-2)"> CLP/mes</span></span></td>
+        <td><span class="plan-price">$90.000 <span>CLP/mes</span></span></td>
       </tr>
       <tr>
         <td>
           <div class="plan-name">Enterprise</div>
-          <div style="font-size:.75rem;margin-top:.15rem">Para empresas reguladas, bancos y corporativos.</div>
+          <div class="plan-sub">Para empresas reguladas, bancos y corporativos que necesitan cobertura total.</div>
         </td>
         <td>
           <ul>
@@ -338,11 +327,11 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
   </table>
 </section>
 
-<hr>
+<hr class="sep">
 
 <!-- OTHER SERVICES -->
 <section class="others" id="otros">
-  <h2>Consultoría y desarrollo</h2>
+  <h2>Otros servicios</h2>
   <ul class="svc-list">
     <li class="svc-item">
       <span class="svc-name">Desarrollo web</span>
@@ -355,7 +344,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
     </li>
     <li class="svc-item">
       <span class="svc-name">Ecosistemas de datos</span>
-      <span class="svc-desc">Pipelines completos: ETL, data warehouses, dashboards y reportería automatizada.</span>
+      <span class="svc-desc">Pipelines ETL, data warehouses, dashboards y reportería automatizada.</span>
       <div class="svc-tags">
         <span class="svc-tag">ETL</span>
         <span class="svc-tag">Data Warehouse</span>
@@ -378,7 +367,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
 <section class="cta" id="contact">
   <div class="cta-inner">
     <div class="cta-copy">
-      <h2>Evalúa la exposición de tu empresa.</h2>
+      <h2>Evalúa la exposición de tu empresa</h2>
       <p>Evaluación gratuita de tu dominio corporativo. Sin compromiso.</p>
     </div>
     <div class="cta-btns">
@@ -389,8 +378,8 @@ footer{border-top:1px solid var(--border);padding:1.2rem 2rem;display:flex;align
 </section>
 
 <footer>
-  <span>© 2026 Datalert SpA — Chile</span>
-  <span>No exponemos contraseñas ni datos sensibles en ninguna consulta.</span>
+  <span>© 2026 Datalert</span>
+  <span>No exponemos contraseñas ni datos sensibles.</span>
 </footer>
 
 <script>
@@ -450,7 +439,7 @@ async function doSearch(e){
     box.innerHTML=`
       <div class="rb-header"><h3>${persona?esc(persona.nombre):esc(q)}</h3><span class="rb-badge ${r.c}">${r.l}</span></div>
       ${personaHtml}
-      ${leakAgo?`<div class="rb-leak-ago"><span class="live-dot"></span>&nbsp;Última filtración detectada ${leakAgo}</div>`:''}
+      ${leakAgo?`<div class="rb-leak-ago"><span class="live-mark" style="width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;display:inline-block;margin-right:.2rem"></span>Última filtración detectada ${leakAgo}</div>`:''}
       <div class="rb-stats">
         <div class="rb-stat"><div class="rb-stat-n">${d.total}</div><div class="rb-stat-l">Registros</div></div>
         <div class="rb-stat"><div class="rb-stat-n">${d.domains}</div><div class="rb-stat-l">${isDomain?'Fuentes':'Dominios'}</div></div>
