@@ -453,7 +453,9 @@ async function doSearch(e){
     const d=await res.json();
     if(!res.ok){box.innerHTML=`<div class="rb-error">${d.error||'Error'}</div>`;box.classList.add('on');return}
     if(!d.found){
-      box.innerHTML=`<div class="rb-empty">No se encontraron registros asociados a "${esc(q)}".</div>`;
+      const p=d.persona||null;
+      const pHtml=p?`<div class="rb-persona"><div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div><div class="rb-persona-name">${esc(p.nombre)}</div><div class="rb-persona-rut">${esc(p.rut)}</div></div>`:'';
+      box.innerHTML=`<div class="rb-header"><h3>${p?esc(p.nombre):esc(q)}</h3><span class="rb-badge none">Sin exposición</span></div>${pHtml}<div class="rb-empty">No se encontraron credenciales filtradas${p?' para este RUT':''}</div>`;
       box.classList.add('on');return;
     }
     const r=RISK[d.risk]||RISK.low;
