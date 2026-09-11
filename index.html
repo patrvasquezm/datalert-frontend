@@ -102,7 +102,9 @@ a{color:inherit;text-decoration:none}
 .rb-persona{padding:.8rem 1.5rem;background:rgba(59,130,246,.04);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.8rem}
 .rb-persona-icon{width:32px;height:32px;min-width:32px;border-radius:50%;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center}
 .rb-persona-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.5}
-.rb-persona-name{font-size:.88rem;font-weight:600;color:var(--white);flex:1}
+.rb-persona-info{flex:1;min-width:0}
+.rb-persona-name{font-size:.88rem;font-weight:600;color:var(--white)}
+.rb-persona-addr{font-size:.78rem;color:var(--text2);margin-top:.15rem;filter:blur(4px);user-select:none}
 .rb-persona-rut{font-size:.75rem;color:var(--accent);font-weight:500;font-variant-numeric:tabular-nums}
 
 /* ── FEATURES ── */
@@ -454,7 +456,8 @@ async function doSearch(e){
     if(!res.ok){box.innerHTML=`<div class="rb-error">${d.error||'Error'}</div>`;box.classList.add('on');return}
     if(!d.found){
       const p=d.persona||null;
-      const pHtml=p?`<div class="rb-persona"><div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div><div class="rb-persona-name">${esc(p.nombre)}</div><div class="rb-persona-rut">${esc(p.rut)}</div></div>`:'';
+      const pAddr=p&&p.direccion?`${p.direccion}${p.ciudad?' — '+p.ciudad:''}`:'';
+      const pHtml=p?`<div class="rb-persona"><div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div><div class="rb-persona-info"><div class="rb-persona-name">${esc(p.nombre)}</div>${pAddr?`<div class="rb-persona-addr">${esc(pAddr)}</div>`:''}</div><div class="rb-persona-rut">${esc(p.rut)}</div></div>`:'';
       box.innerHTML=`<div class="rb-header"><h3>${p?esc(p.nombre):esc(q)}</h3><span class="rb-badge none">Sin exposición</span></div>${pHtml}<div class="rb-empty">No se encontraron credenciales filtradas${p?' para este RUT':''}</div>`;
       box.classList.add('on');return;
     }
@@ -478,10 +481,11 @@ async function doSearch(e){
     }
     const leakAgo=d.last_leak_ago||null;
     const persona=d.persona||null;
+    const pAddr2=persona&&persona.direccion?`${persona.direccion}${persona.ciudad?' — '+persona.ciudad:''}`:'';
     const personaHtml=persona?`
       <div class="rb-persona">
         <div class="rb-persona-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
-        <div class="rb-persona-name">${esc(persona.nombre)}</div>
+        <div class="rb-persona-info"><div class="rb-persona-name">${esc(persona.nombre)}</div>${pAddr2?`<div class="rb-persona-addr">${esc(pAddr2)}</div>`:''}</div>
         <div class="rb-persona-rut">${esc(persona.rut)}</div>
       </div>`:'';
     box.innerHTML=`
