@@ -165,6 +165,8 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
   .search-row{flex-direction:column}
   .search-row button{width:100%}
 }
+.wsp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35);z-index:9999;transition:transform .2s}
+.wsp-float:hover{transform:scale(1.1)}
 </style>
 </head>
 <body>
@@ -177,7 +179,7 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
       <li><a href="#about">Plataforma</a></li>
       <li><a href="#plans">Planes</a></li>
     </ul>
-    <a href="https://wa.me/56975764432?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Datalert" class="nav-cta" target="_blank">Contacto</a>
+    <a href="mailto:contacto@datalert.cl" class="nav-cta">Contacto</a>
   </div>
 </nav>
 
@@ -253,7 +255,7 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
       <tr>
         <td><div class="plan-name">Enterprise</div><div class="plan-sub">Cobertura total para organizaciones reguladas</div></td>
         <td><ul><li>Dominios ilimitados</li><li>SLA de respuesta 4h</li><li>Informes para CSIRT / CMF</li><li>Account manager dedicado</li></ul></td>
-        <td><a href="https://wa.me/56975764432?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20de%20Datalert" class="plan-contact" target="_blank">Contactar →</a></td>
+        <td><a href="mailto:contacto@datalert.cl" class="plan-contact">Contactar →</a></td>
       </tr>
     </tbody>
   </table>
@@ -277,13 +279,17 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
       <p>Primera evaluación de tu dominio corporativo gratuita y sin compromiso.</p>
     </div>
     <div class="cta-btns">
-      <a href="https://wa.me/56975764432?text=Hola%2C%20quiero%20solicitar%20una%20evaluaci%C3%B3n%20gratuita%20de%20mi%20dominio" class="btn-pri" target="_blank">Solicitar evaluación</a>
+      <a href="mailto:contacto@datalert.cl" class="btn-pri">Solicitar evaluación</a>
       <a href="#search" class="btn-sec">Consulta rápida</a>
     </div>
   </div>
 </section>
 
 <footer>© 2026 Datalert — Herramienta de detección. No almacenamos consultas, no exponemos contraseñas ni distribuimos datos sensibles.</footer>
+
+<a href="https://wa.me/56975764432?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Datalert" class="wsp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.738 3.058 9.376L1.058 32l6.834-1.966c2.526 1.7 5.578 2.694 8.856 2.694h.008c8.822 0 16.244-7.176 16.244-16.004S24.826 0 16.004 0zm9.53 22.608c-.4 1.128-2.344 2.156-3.276 2.244-.878.08-1.686.4-5.684-1.184-4.822-1.908-7.886-6.848-8.124-7.166-.232-.318-1.908-2.54-1.908-4.844s1.204-3.436 1.636-3.908c.432-.472.94-.59 1.254-.59.318 0 .622.004.894.016.288.014.674-.108 1.054.804.4.95 1.354 3.298 1.472 3.538.118.24.198.518.04.836-.158.318-.238.518-.472.798-.232.278-.49.622-.7.836-.232.238-.474.496-.204.972.272.472 1.214 2.002 2.606 3.244 1.788 1.596 3.296 2.09 3.768 2.326.472.238.748.198 1.022-.118.278-.318 1.176-1.372 1.49-1.844.318-.472.632-.39 1.064-.236.432.158 2.746 1.296 3.218 1.53.472.236.786.354.904.55.118.198.118 1.128-.282 2.256z"/></svg>
+</a>
 
 <script>
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
