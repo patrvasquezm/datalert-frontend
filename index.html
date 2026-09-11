@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Datalert — Brechas de datos en Chile</title>
+<title>Datalert — Monitoreo de exposición digital para empresas en Chile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -173,8 +173,8 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
   <div class="nav-inner">
     <a href="/" class="nav-brand">Datalert</a>
     <ul class="nav-links">
-      <li><a href="#search">Buscar</a></li>
-      <li><a href="#about">Producto</a></li>
+      <li><a href="#search">Consulta</a></li>
+      <li><a href="#about">Plataforma</a></li>
       <li><a href="#plans">Planes</a></li>
     </ul>
     <a href="mailto:contacto@datalert.cl" class="nav-cta">Contacto</a>
@@ -182,15 +182,15 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
 </nav>
 
 <section class="hero" id="search">
-  <h1>Busca credenciales filtradas de tu empresa</h1>
-  <p class="hero-p">Monitoreo de brechas activas en Chile. La <strong>Ley 21.719</strong> exige detección y notificación oportuna.</p>
+  <h1>Vigila la exposición digital de tu empresa</h1>
+  <p class="hero-p">Datalert monitorea filtraciones de credenciales asociadas a tu organización y te alerta cuando aparece nueva exposición. Haz una consulta gratuita o activa el monitoreo continuo.</p>
 
   <form class="search-row" id="searchForm" onsubmit="doSearch(event)">
     <input type="text" id="searchInput" placeholder="empresa.cl, usuario@empresa.cl o RUT" autocomplete="off">
     <button type="submit" id="searchBtn">Buscar</button>
   </form>
   <div class="search-meta">
-    <span><strong id="statCreds">...</strong> registros &nbsp;·&nbsp; <strong id="statDomains">...</strong> dominios &nbsp;·&nbsp; no almacenamos consultas</span>
+    <span><strong id="statCreds">...</strong> registros &nbsp;·&nbsp; <strong id="statDomains">...</strong> dominios &nbsp;·&nbsp; consulta gratuita, sin registro</span>
     <span class="stat-live" id="liveBar">
       <span class="live-mark"></span>
       <span>última brecha <strong id="lastAgo"></strong></span>
@@ -209,20 +209,25 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
   <h2>Cómo funciona</h2>
   <div class="about-grid">
     <div class="about-left">
-      <p>Indexamos filtraciones activas y cruzamos credenciales con dominios, correos y <strong>RUT chileno</strong>. Si tu empresa aparece, te avisamos el mismo día.</p>
+      <p>Datalert vigila fuentes de filtraciones de forma continua y las cruza con los dominios, correos y <strong>RUT</strong> de tu organización. No necesitas buscar manualmente: cuando hay nueva exposición, te avisamos.</p>
+      <p>La <strong>Ley 21.719</strong> establece obligaciones de detección y notificación de brechas de datos personales en Chile. Datalert ayuda a las organizaciones a identificar exposiciones y gestionar su respuesta.</p>
     </div>
     <ul class="steps">
       <li class="step">
-        <h4>Monitoreo continuo</h4>
-        <p>Fuentes activas 24/7, registros indexados en tiempo real.</p>
+        <h4>Detección</h4>
+        <p>Recopilamos y procesamos registros de filtraciones activas de forma continua, sin intervención manual.</p>
       </li>
       <li class="step">
-        <h4>Perfil de exposición</h4>
-        <p>Dominio, origen y fecha por cada registro filtrado.</p>
+        <h4>Correlación</h4>
+        <p>Cada hallazgo se asocia al dominio afectado, origen de la exposición, fecha e indicadores relevantes.</p>
+      </li>
+      <li class="step">
+        <h4>Verificación</h4>
+        <p>Validamos la pertinencia del hallazgo para reducir falsos positivos antes de generar una alerta.</p>
       </li>
       <li class="step">
         <h4>Alerta y respuesta</h4>
-        <p>Notificación para cambio de credenciales y reporte regulatorio.</p>
+        <p>Notificamos a la organización con el contexto necesario para priorizar acciones: cambio de credenciales, investigación o documentación.</p>
       </li>
     </ul>
   </div>
@@ -236,18 +241,18 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
     <thead><tr><th>Plan</th><th>Incluye</th><th>Precio</th></tr></thead>
     <tbody>
       <tr>
-        <td><div class="plan-name">Básico</div><div class="plan-sub">PyMEs</div></td>
-        <td><ul><li>1 dominio</li><li>Alertas email</li><li>Dashboard</li><li>Reporte mensual</li></ul></td>
+        <td><div class="plan-name">Básico</div><div class="plan-sub">Monitoreo esencial para PyMEs</div></td>
+        <td><ul><li>Monitoreo de 1 dominio</li><li>Alertas por email</li><li>Dashboard de exposición</li><li>Reporte mensual</li></ul></td>
         <td><span class="plan-price">$35.000 <span>CLP/mes</span></span></td>
       </tr>
       <tr>
-        <td><div class="plan-name">Profesional</div><div class="plan-sub">Empresas medianas</div></td>
-        <td><ul><li>5 dominios</li><li>API REST + webhooks</li><li>Búsqueda por RUT</li><li>Reportes PDF</li></ul></td>
+        <td><div class="plan-name">Profesional</div><div class="plan-sub">Integración y cobertura ampliada</div></td>
+        <td><ul><li>Hasta 5 dominios</li><li>API REST + webhooks</li><li>Búsqueda por dominio, email y RUT</li><li>Reportes PDF para compliance</li></ul></td>
         <td><span class="plan-price">$90.000 <span>CLP/mes</span></span></td>
       </tr>
       <tr>
-        <td><div class="plan-name">Enterprise</div><div class="plan-sub">Reguladas / banca</div></td>
-        <td><ul><li>Dominios ilimitados</li><li>SLA 4h</li><li>Informes CSIRT / CMF</li><li>Account manager</li></ul></td>
+        <td><div class="plan-name">Enterprise</div><div class="plan-sub">Cobertura total para organizaciones reguladas</div></td>
+        <td><ul><li>Dominios ilimitados</li><li>SLA de respuesta 4h</li><li>Informes para CSIRT / CMF</li><li>Account manager dedicado</li></ul></td>
         <td><a href="mailto:contacto@datalert.cl" class="plan-contact">Contactar →</a></td>
       </tr>
     </tbody>
@@ -259,26 +264,26 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.68rem;c
 <section class="section" id="otros">
   <h2>Otros servicios</h2>
   <ul class="svc-list">
-    <li class="svc-item"><span class="svc-name">Desarrollo web</span><span class="svc-desc">Apps completas — frontend, backend, base de datos, deploy cloud.</span></li>
-    <li class="svc-item"><span class="svc-name">Ecosistemas de datos</span><span class="svc-desc">ETL, data warehouses, dashboards, reportería automatizada.</span></li>
-    <li class="svc-item"><span class="svc-name">Automatización</span><span class="svc-desc">Integración de sistemas y workflows con n8n.</span></li>
+    <li class="svc-item"><span class="svc-name">Desarrollo web</span><span class="svc-desc">Aplicaciones a medida — frontend, backend, cloud.</span></li>
+    <li class="svc-item"><span class="svc-name">Ecosistemas de datos</span><span class="svc-desc">ETL, warehouses, dashboards, reportería.</span></li>
+    <li class="svc-item"><span class="svc-name">Automatización</span><span class="svc-desc">Integración de sistemas y flujos de trabajo.</span></li>
   </ul>
 </section>
 
 <section class="section" id="contact">
   <div class="cta-inner">
     <div class="cta-copy">
-      <h2>Evalúa tu exposición</h2>
-      <p>Evaluación gratuita de tu dominio. Sin compromiso.</p>
+      <h2>Conoce tu nivel de exposición</h2>
+      <p>Primera evaluación de tu dominio corporativo gratuita y sin compromiso.</p>
     </div>
     <div class="cta-btns">
       <a href="mailto:contacto@datalert.cl" class="btn-pri">Solicitar evaluación</a>
-      <a href="#search" class="btn-sec">Buscar</a>
+      <a href="#search" class="btn-sec">Consulta rápida</a>
     </div>
   </div>
 </section>
 
-<footer>© 2026 Datalert — No exponemos contraseñas ni datos sensibles.</footer>
+<footer>© 2026 Datalert — Herramienta de detección. No almacenamos consultas, no exponemos contraseñas ni distribuimos datos sensibles.</footer>
 
 <script>
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
