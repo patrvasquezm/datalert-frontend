@@ -3,6 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Datalert monitorea filtraciones de credenciales asociadas a tu empresa en Chile y te alerta cuando aparece nueva exposición. Consulta gratuita por dominio, email o RUT.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://datalert.cl/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Datalert">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="https://datalert.cl/">
+<meta property="og:title" content="Datalert — Monitoreo de exposición digital para empresas en Chile">
+<meta property="og:description" content="Monitoreo continuo de filtraciones de credenciales asociadas a tu organización. Consulta gratuita por dominio, email o RUT.">
+<meta property="og:image" content="https://datalert.cl/datalert.png">
+<meta property="og:image:alt" content="Datalert">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Datalert — Monitoreo de exposición digital para empresas en Chile">
+<meta name="twitter:description" content="Monitoreo continuo de filtraciones de credenciales asociadas a tu organización. Consulta gratuita por dominio, email o RUT.">
+<meta name="twitter:image" content="https://datalert.cl/datalert.png">
 <title>Datalert — Monitoreo de exposición digital para empresas en Chile</title>
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -179,6 +198,50 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.8rem;co
 .wsp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35);z-index:9999;transition:transform .2s}
 .wsp-float:hover{transform:scale(1.1)}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://datalert.cl/#organization",
+      "name": "Datalert",
+      "url": "https://datalert.cl/",
+      "logo": "https://datalert.cl/datalert.png",
+      "email": "contacto@datalert.cl",
+      "areaServed": { "@type": "Country", "name": "Chile" },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "contacto@datalert.cl",
+        "telephone": "+56975764432",
+        "availableLanguage": ["es"]
+      }]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://datalert.cl/#website",
+      "url": "https://datalert.cl/",
+      "name": "Datalert",
+      "inLanguage": "es-CL",
+      "publisher": { "@id": "https://datalert.cl/#organization" }
+    },
+    {
+      "@type": "Service",
+      "name": "Monitoreo de exposición digital",
+      "serviceType": "Monitoreo de filtraciones de credenciales",
+      "provider": { "@id": "https://datalert.cl/#organization" },
+      "areaServed": { "@type": "Country", "name": "Chile" },
+      "description": "Monitoreo continuo de filtraciones de credenciales asociadas a dominios, correos y RUT de la organización, con alertas y contexto para la respuesta ante incidentes.",
+      "offers": [
+        { "@type": "Offer", "name": "B\u00e1sico", "price": "35000", "priceCurrency": "CLP", "description": "Monitoreo de 1 dominio, alertas por email, dashboard de exposici\u00f3n y reporte mensual." },
+        { "@type": "Offer", "name": "Profesional", "price": "90000", "priceCurrency": "CLP", "description": "Hasta 5 dominios, API REST y webhooks, b\u00fasqueda por dominio, email y RUT, reportes PDF." },
+        { "@type": "Offer", "name": "Enterprise", "description": "Dominios ilimitados, SLA de respuesta 4h, informes para CSIRT/CMF y account manager dedicado." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
