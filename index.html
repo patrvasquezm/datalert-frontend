@@ -466,10 +466,16 @@ async function doSearch(e){
 }
 function pedirDominio(emp,box){
   const sug=emp.dominio_sugerido;
+  const razon=emp.razon_social;
+  const headerText=razon?esc(razon):esc(emp.rut||'');
+  const pregunta=razon
+    ?`El RUT <strong>${esc(emp.rut)}</strong> pertenece a <strong>${esc(razon)}</strong>. Ingresa el dominio de la empresa para consultar su exposición.`
+    :'Este RUT corresponde a una empresa. La exposición corporativa se rastrea por <strong>dominio</strong>, no por RUT.';
   box.innerHTML=`
-    <div class="rb-header"><h3>${esc(emp.rut||'')}</h3><span class="rb-badge none">RUT de empresa</span></div>
+    <div class="rb-header"><h3>${headerText}</h3><span class="rb-badge none">RUT de empresa</span></div>
+    ${razon?`<div class="rb-persona"><div class="rb-persona-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="rb-persona-info"><div class="rb-persona-name">${esc(razon)}</div></div><div class="rb-persona-rut">${esc(emp.rut)}</div></div>`:''}
     <div class="rb-ask">
-      <p>Este RUT corresponde a una empresa. La exposición corporativa se rastrea por <strong>dominio</strong>, no por RUT.</p>
+      <p>${pregunta}</p>
       <form class="rb-ask-row" id="domForm">
         <input id="domInput" type="text" placeholder="empresa.cl" autocomplete="off" spellcheck="false" inputmode="url">
         <button type="submit">Ver exposición</button>
