@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Datalert monitorea filtraciones de credenciales asociadas a tu empresa en Chile y te alerta cuando aparece nueva exposición. Consulta gratuita por dominio, email o RUT.">
+<meta name="description" content="Datalert monitorea filtraciones de credenciales y datos personales de tu empresa en Chile. Prepárate para la Ley 21.719 de Protección de Datos Personales. Consulta gratuita por dominio, email o RUT.">
+<meta name="keywords" content="ley 21719, ley 21.719, protección de datos personales chile, filtraciones de datos, brecha de seguridad, monitoreo de credenciales, exposición digital, ciberseguridad chile, datos personales empresa, notificación de brechas">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://datalert.cl/">
 
@@ -12,17 +13,17 @@
 <meta property="og:site_name" content="Datalert">
 <meta property="og:locale" content="es_CL">
 <meta property="og:url" content="https://datalert.cl/">
-<meta property="og:title" content="Datalert — Monitoreo de exposición digital para empresas en Chile">
-<meta property="og:description" content="Monitoreo continuo de filtraciones de credenciales asociadas a tu organización. Consulta gratuita por dominio, email o RUT.">
+<meta property="og:title" content="Datalert — Monitoreo de exposición digital y Ley 21.719 para empresas en Chile">
+<meta property="og:description" content="Monitoreo continuo de filtraciones de credenciales y datos personales. Prepárate para la Ley 21.719 de Protección de Datos. Consulta gratuita.">
 <meta property="og:image" content="https://datalert.cl/datalert.png">
 <meta property="og:image:alt" content="Datalert">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Datalert — Monitoreo de exposición digital para empresas en Chile">
-<meta name="twitter:description" content="Monitoreo continuo de filtraciones de credenciales asociadas a tu organización. Consulta gratuita por dominio, email o RUT.">
+<meta name="twitter:title" content="Datalert — Monitoreo de exposición digital y Ley 21.719 para empresas en Chile">
+<meta name="twitter:description" content="Monitoreo continuo de filtraciones de credenciales y datos personales. Prepárate para la Ley 21.719 de Protección de Datos. Consulta gratuita.">
 <meta name="twitter:image" content="https://datalert.cl/datalert.png">
-<title>Datalert — Monitoreo de exposición digital para empresas en Chile</title>
+<title>Datalert — Monitoreo de filtraciones y Ley 21.719 de Protección de Datos en Chile</title>
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -216,6 +217,13 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.8rem;co
 }
 .wsp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35);z-index:9999;transition:transform .2s}
 .wsp-float:hover{transform:scale(1.1)}
+
+.faq-list{max-width:720px}
+.faq-item{border-bottom:1px solid var(--border);padding:0}
+.faq-item summary{padding:1rem 0;font-size:1rem;font-weight:600;color:var(--white);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::after{content:'+';font-size:1.3rem;color:var(--text-dim);transition:transform .2s}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{padding:0 0 1rem;font-size:.92rem;color:var(--text);line-height:1.6}
 </style>
 <script type="application/ld+json">
 {
@@ -251,12 +259,60 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.8rem;co
       "serviceType": "Monitoreo de filtraciones de credenciales",
       "provider": { "@id": "https://datalert.cl/#organization" },
       "areaServed": { "@type": "Country", "name": "Chile" },
-      "description": "Monitoreo continuo de filtraciones de credenciales asociadas a dominios, correos y RUT de la organización, con alertas y contexto para la respuesta ante incidentes.",
+      "description": "Monitoreo continuo de filtraciones de credenciales y datos personales asociados a dominios, correos y RUT de la organización. Preparación para el cumplimiento de la Ley 21.719 de Protección de Datos Personales en Chile.",
       "offers": [
         { "@type": "Offer", "name": "B\u00e1sico", "price": "45000", "priceCurrency": "CLP", "description": "Monitoreo de 1 dominio, alertas por email, dashboard de exposici\u00f3n y reporte mensual." },
         { "@type": "Offer", "name": "Profesional", "price": "69000", "priceCurrency": "CLP", "description": "Hasta 5 dominios, API REST y webhooks, b\u00fasqueda por dominio, email y RUT, reportes PDF." },
         { "@type": "Offer", "name": "Enterprise", "description": "Dominios ilimitados, respuesta prioritaria en horario h\u00e1bil, informes con evidencia y trazabilidad para notificaciones regulatorias y account manager dedicado." }
       ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es la Ley 21.719 de Protección de Datos Personales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Ley 21.719 es la nueva ley de protección de datos personales de Chile, que moderniza la legislación vigente desde 1999. Establece obligaciones concretas para las organizaciones que tratan datos personales, incluyendo la notificación de brechas de seguridad, el consentimiento informado y sanciones por incumplimiento de hasta 20.000 UTM. Entra en vigencia en diciembre de 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿A quiénes aplica la Ley 21.719?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aplica a toda organización pública o privada en Chile que trate datos personales, sin importar su tamaño. Esto incluye empresas que manejan datos de clientes, empleados, proveedores o cualquier persona natural identificable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si mi empresa sufre una filtración de datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bajo la Ley 21.719, debes notificar la brecha a la Agencia de Protección de Datos Personales y a los titulares afectados en el menor plazo posible. Datalert te ayuda a detectar estas filtraciones de forma temprana y te entrega la evidencia necesaria para documentar tu respuesta ante incidentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo saber si mi empresa tiene credenciales filtradas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes hacer una consulta gratuita en Datalert ingresando tu dominio corporativo, un email o un RUT. Nuestro sistema busca en bases de datos de filtraciones públicas y te muestra si existen credenciales expuestas asociadas a tu organización, sin revelar contraseñas ni datos sensibles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo entra en vigencia la Ley 21.719?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Ley 21.719 fue promulgada en diciembre de 2024 y contempla un plazo de implementación de 24 meses. Las organizaciones en Chile deben estar en cumplimiento antes de diciembre de 2026, fecha en que las sanciones comienzan a aplicarse."
+      }
     }
   ]
 }
@@ -271,6 +327,7 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.8rem;co
       <li><a href="#search">Consulta</a></li>
       <li><a href="#about">Plataforma</a></li>
       <li><a href="#plans">Planes</a></li>
+      <li><a href="#ley21719">Ley 21.719</a></li>
     </ul>
     <a href="mailto:contacto@datalert.cl" class="nav-cta">Contacto</a>
   </div>
@@ -356,6 +413,64 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.8rem;co
       </tr>
     </tbody>
   </table>
+</section>
+
+<hr class="sep">
+
+<section class="section" id="ley21719">
+  <h2>Ley 21.719 — Protección de Datos Personales</h2>
+  <div class="about-grid">
+    <div class="about-left">
+      <p>Desde <strong>diciembre de 2026</strong>, la <strong>Ley 21.719</strong> obliga a todas las organizaciones en Chile a notificar brechas de seguridad que afecten datos personales y a implementar medidas técnicas de protección adecuadas.</p>
+      <p>Las empresas que no cumplan se exponen a sanciones de hasta <strong>20.000 UTM</strong> y daño reputacional. Datalert te permite conocer tu nivel de exposición actual y prepararte antes de la entrada en vigencia.</p>
+      <p>Nuestro monitoreo continuo detecta filtraciones de credenciales asociadas a tu dominio y te entrega reportes con la evidencia necesaria para documentar tu respuesta ante incidentes de seguridad.</p>
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="step-content"><h4>Obligación de proteger</h4>
+        <p>Las organizaciones deben implementar medidas técnicas y organizativas para proteger los datos personales que tratan.</p></div>
+      </li>
+      <li class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <div class="step-content"><h4>Notificación de brechas</h4>
+        <p>Toda brecha que afecte datos personales debe ser notificada a la Agencia de Protección de Datos y a los titulares afectados.</p></div>
+      </li>
+      <li class="step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="step-content"><h4>Documentación</h4>
+        <p>Es necesario mantener registros de las medidas de seguridad adoptadas y de los incidentes ocurridos como respaldo ante fiscalizaciones.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<hr class="sep">
+
+<section class="section" id="faq">
+  <h2>Preguntas frecuentes</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>¿Qué es la Ley 21.719 de Protección de Datos Personales?</summary>
+      <p>La Ley 21.719 es la nueva ley de protección de datos personales de Chile, que moderniza la legislación vigente desde 1999. Establece obligaciones concretas para las organizaciones que tratan datos personales, incluyendo la notificación de brechas de seguridad, el consentimiento informado y sanciones por incumplimiento de hasta 20.000 UTM. Entra en vigencia en diciembre de 2026.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿A quiénes aplica la Ley 21.719?</summary>
+      <p>Aplica a toda organización pública o privada en Chile que trate datos personales, sin importar su tamaño. Esto incluye empresas que manejan datos de clientes, empleados, proveedores o cualquier persona natural identificable. Si tu empresa tiene una base de datos con nombres, emails, RUT u otros datos personales, estás sujeto a esta ley.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué pasa si mi empresa sufre una filtración de datos?</summary>
+      <p>Bajo la Ley 21.719, debes notificar la brecha a la Agencia de Protección de Datos Personales y a los titulares afectados en el menor plazo posible. Datalert te ayuda a detectar estas filtraciones de forma temprana y te entrega la evidencia necesaria para documentar tu respuesta ante incidentes.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo puedo saber si mi empresa tiene credenciales filtradas?</summary>
+      <p>Puedes hacer una consulta gratuita en Datalert ingresando tu dominio corporativo, un email o un RUT. Nuestro sistema busca en bases de datos de filtraciones públicas y te muestra si existen credenciales expuestas asociadas a tu organización, sin revelar contraseñas ni datos sensibles.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuándo entra en vigencia la Ley 21.719?</summary>
+      <p>La Ley 21.719 fue promulgada en diciembre de 2024 y contempla un plazo de implementación de 24 meses. Esto significa que las organizaciones en Chile deben estar en cumplimiento antes de diciembre de 2026, fecha en que las sanciones comienzan a aplicarse.</p>
+    </details>
+  </div>
 </section>
 
 <hr class="sep">
