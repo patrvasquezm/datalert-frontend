@@ -342,7 +342,7 @@ footer{border-top:1px solid var(--border);padding:1rem 1.5rem;font-size:.8rem;co
     <button type="submit" id="searchBtn">Buscar</button>
   </form>
   <div class="search-meta">
-    <span><strong id="statCreds">...</strong> registros &nbsp;·&nbsp; <strong id="statDomains">...</strong> dominios &nbsp;·&nbsp; consulta gratuita, sin registro</span>
+    <span>consulta gratuita, sin registro</span>
     <span class="stat-live" id="liveBar">
       <span class="live-mark"></span>
       <span>última brecha <strong id="lastAgo"></strong></span>
@@ -520,17 +520,11 @@ const API_BASE = window.location.hostname === 'localhost' || window.location.hos
   try{
     const res = await fetch(API_BASE + '/api/breach/stats');
     const s = await res.json();
-    document.getElementById('statCreds').textContent = '+' + Math.floor((s.total_creds||0)/1000000) + 'M';
-    const domK = Math.floor((s.total_domains||0)/1000)*1000;
-    document.getElementById('statDomains').textContent = '+' + domK.toLocaleString('es-CL');
     if(s.last_ago){
       document.getElementById('lastAgo').textContent = s.last_ago;
       document.getElementById('liveBar').classList.add('on');
     }
-  }catch(e){
-    document.getElementById('statCreds').textContent = '+90M';
-    document.getElementById('statDomains').textContent = '+157.000';
-  }
+  }catch(e){}
 })();
 
 const RISK={critical:{l:'Crítico',c:'critical'},high:{l:'Alto',c:'high'},medium:{l:'Medio',c:'medium'},low:{l:'Bajo',c:'low'},none:{l:'Sin exposición',c:'none'}};
