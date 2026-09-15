@@ -556,8 +556,9 @@ async function doSearch(e){
     }
     const r=RISK[d.risk]||RISK.low;
     const isDomain=d.search_type==='domain';
-    const first=d.breaches[0];
-    const hidden=d.domains-1;
+    const visible=d.breaches;
+    const hidden=d.domains-visible.length;
+    let visibleRows=visible.map(b=>`<li class="rb-row"><span class="rb-row-domain">${esc(b.domain)}</span><span class="rb-row-right"><span>${b.first_seen||''}</span><span class="rb-row-count">${b.count}</span></span></li>`).join('');
     let hiddenRows='';
     if(hidden>0){
       hiddenRows=`<li class="rb-row rb-blurred"><span class="rb-row-domain">████████.██</span><span class="rb-row-right"><span class="rb-row-count">███</span></span></li>`.repeat(Math.min(hidden,3));
@@ -577,7 +578,7 @@ async function doSearch(e){
         <div class="rb-stat"><div class="rb-stat-n">${d.last_seen||'—'}</div><div class="rb-stat-l">Hasta</div></div>
       </div>
       <ul class="rb-list">
-        <li class="rb-row"><span class="rb-row-domain">${esc(first.domain)}</span><span class="rb-row-right"><span>${first.first_seen||''}</span><span class="rb-row-count">${first.count}</span></span></li>
+        ${visibleRows}
         ${hiddenRows}
       </ul>`;
     box.classList.add('on');
